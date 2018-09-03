@@ -1,0 +1,228 @@
+.main{
+  position: relative;
+}
+
+.value--show {
+border: 1px solid red;
+display: inline-block;
+}
+
+.value--hide {
+  display: none;
+}
+
+#time{
+    font-size: 50px;
+    font-weight: 500;
+    background-color: darkorange;
+    width: 250px;
+    padding: 7px 40px;
+}
+
+.button-functional{
+  color: white;
+  background-color: darkgreen;
+  border: 1px solid white;
+  border-radius: 0%;
+  font-weight: 500;
+  transition: all 0.5s;
+  width: 200;
+  height: 50px;
+  padding: 5px 35px;
+  margin-top: 5px;
+ 
+}
+
+.button-functional:hover {
+  background-color: rgb(1, 143, 1);
+  color: white;
+  transform: scale(1.05);
+}
+
+.button-win{
+  color: white;
+  background-color: rgba(87, 45, 236, 0.904);
+  border: 1px solid white;
+  border-radius: 0%;
+  font-weight: 500;
+  transition: all 0.5s;
+  width: 200;
+  height: 50px;
+  padding: 5px 35px;
+  margin-top: 5px;
+ 
+}
+
+.button-loss{
+  color: white;
+  background-color: rgb(160, 7, 127);
+  border: 1px solid white;
+  border-radius: 0%;
+  font-weight: 500;
+  transition: all 0.5s;
+  width: 200;
+  height: 50px;
+  padding: 5px 35px;
+  margin-top: 5px;
+ 
+}
+
+.button-target{
+  color: white;
+  background-color: rgb(161, 4, 148);
+  border: 1px solid white;
+  border-radius: 0%;
+  font-weight: 500;
+  font-size: 50px;
+  transition: all 0.5s;
+  width: 300;
+  height: 150px;
+  padding: 5px 55px;
+  margin-top: 10px; 
+}
+
+
+
+
+
+.button-disabled {
+  opacity: 0.4;
+  color: white;
+  background-color: rgb(5, 100, 5);
+  border: 1px solid white;
+  border-radius: 0%;
+  font-weight: 500;
+  transition: all 0.5s;
+  width: 300;
+  height: 50px;
+  padding: 5px 35px;
+  margin-top: 10px;
+  animation-name: buttonDisapear;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  }
+
+  .button-enabled {
+      opacity: 0.4;
+      color: white;
+      background-color: rgb(5, 100, 5);
+      border: 1px solid white;
+      border-radius: 0%;
+      font-weight: 500;
+      transition: all 0.5s;
+      width: 300;
+      height: 50px;
+      padding: 5px 35px;
+      margin-top: 10px;
+      animation-name: buttonApear;
+      animation-duration: 0.4s;
+      animation-fill-mode: forwards;
+      }
+
+      
+
+  .buttonGroup{
+     
+      font-weight: 500;
+      font-size: 20px;
+      width: 70%;
+      height: 150px;
+      padding: 5px ;
+      margin: 5px;
+  }
+
+  .buttonGroup1{
+      display: flex;
+      justify-content: stretch;
+      font-weight: 500;
+      font-size: 20px;
+      width: 70%;
+      height: 60px;
+      padding: 5px ;
+      margin: 5px;
+  }
+
+  .buttonGroup2{
+      display: flex;
+      justify-content: stretch;
+      font-weight: 500;
+      font-size: 20px;
+      width: 70%;
+      height: 70px;
+      padding: 5px ;
+      margin: 5px;
+  }
+
+  .button-operand{
+      color: white;
+      background-color: darkorange;
+      border: 1px solid white;
+      border-radius: 0%;
+      font-weight: 500;
+      transition: all 0.5s;
+      width: 200;
+      height: 50px;
+      padding: 5px 35px;
+      margin-top: 5px;
+     
+  }
+
+  .button-operand:hover {
+      background-color: rgb(190, 106, 3);
+      color: white;
+      transform: scale(1.1);
+  }
+
+  .button-operand:active {
+      background-color: rgba(5, 100, 5, 0.493);
+      color: white;
+      transform: scale(1.1);
+  }
+
+  .playersIput{
+      background-color: rgb(106, 199, 106);
+      border: 1px solid rgb(245, 8, 8);
+      border-radius: 0%;
+      font-weight: 500;
+      font-size: 30px;
+      width: 100%;
+      height: 150px;
+      padding: 5px 35px;
+      margin-top: 5px;
+  }
+
+  .state{
+      position: absolute;
+      font-size: 16px;
+      text-align: left;
+      
+      left:70%; 
+      height: 900px;
+      width: 270px;
+      border: 1px solid red;
+
+  }
+
+  .uputstvo{
+      background-color: bisque;
+      width: 30%;
+      padding: 10px;
+      font-size: 16px;
+  }
+
+
+
+  @keyframes  buttonDisapear {
+      0% {opacity: 1}
+      100%{opacity:0.6;
+           transform:translateY(-20px);
+           background-color: rgba(245, 8, 8, 0.904);
+          display: none}
+  }
+  
+  @keyframes  buttonApear {
+      0% {opacity: 0}
+      100%{opacity:1;
+           transform:translateY(+0px);
+          }
+  }
