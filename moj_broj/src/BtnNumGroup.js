@@ -39,56 +39,82 @@ class BtnNumGroup extends Component {
         let { buttonsClickedArr, inputsValuesArr, isActive } = this.state;
         buttonsClickedArr = buttonsClickedArr.slice();
         inputsValuesArr = inputsValuesArr.slice();
-        buttonsClickedArr.push(id)
-        inputsValuesArr.push(value)
-        isActive = !isActive;
-       
+      
+         let buttonWasPressed= buttonsClickedArr.indexOf(id) >= 0;
 
-        for (var i in buttonsClickedArr) {
-            console.log('jedi govna'+i)
-            if (id == buttonsClickedArr[i]) {
-                    return buttonsClickedArr.pop(id)
-                    console.log('pusi kurac')
-                    this.setState({ buttonsClickedArr, inputsValuesArr, isActive });
-                } 
-            // if (id !== buttonsClickedArr[i]) {
-            //     buttonsClickedArr.pop(id)
-            //     console.log('pusi kurac')
-            //     this.setState({ buttonsClickedArr, inputsValuesArr, isActive });
-            // } else {
-            //     buttonsClickedArr.push(id);
-            //     this.setState({ buttonsClickedArr, inputsValuesArr, isActive });
-
-            // }
-
-        }
-       
-
-        console.log('TEST RODITEL ' + id + ' ' + value + ' ' + isActive + ' ' + buttonsClickedArr);
-        console.log(buttonsClickedArr + ' clicked arr')
-        console.log(inputsValuesArr + ' Values arr')
-        console.log(id)
+         if(buttonWasPressed){
+          null;  
+         }else{
+            buttonsClickedArr.push(id);
+            inputsValuesArr.push(value);
+            isActive = !isActive;
+         }
+           
+        this.setState({buttonsClickedArr, inputsValuesArr, isActive});
     }
 
     NapraviDugme = () => {
         let { targetsArr } = this.state;
         for (let i in targetsArr) {
-            let dugme = <ButtonNumber id={i} value={targetsArr[i]} klasa={this.state.isActive}
+            let dugme = <ButtonNumber id={i} value={targetsArr[i]} isActive={this.state.isActive}
                 klik={() => this.handleClick(i, targetsArr[i])} />
             targetsArr.push(dugme);
         }
         this.setState({ targetsArr });
     }
 
-    izracunaj=(a,b)=>{
-        let racun=a+b;
-    return racun;
-    }
+    // izracunaj=(a,b)=>{
+    //     let racun=a+b;
+    // return racun;
+    // }
 
-    racun=(a,b)=>{
-        let racun=a+b;
-        return racun;  
-    }
+
+    // fun=(a,b)=>{
+    //     return a+b;
+    // }
+
+   
+    // racun=(a)=>{
+    //     let num1=5;
+    //     let num2=5;
+    //     let num3=3;
+    //     let num4=2;
+    //     let num5=15;
+    //         let calc=[];
+    //         let calcR=[];
+    //         let calcRR=[];
+    //         for(let i=1;i<10;i++){
+    //             for(let j=1;j<10;j++){
+    //                 for(let k=1;k<10;k++){
+    //                     for(let l=1;l<10;l++){
+    //                         for(let m=10;m<20;m++){
+    //                                 if(i+j+k+l+m==a){
+    //                                     calcR.push([i,j,k,l,m])
+    //                                    }        
+    //                         }
+    //                     } 
+    //                 }
+                  
+    //               calc.push( this.fun(i,j));
+    //                 console.log(calcR);
+    //                // console.log(calcB);
+    //                 console.log(calc);
+    //             }
+    //             } 
+
+
+    //             for(let q in calcR){
+    //                 for(let w in calcR[q]){
+    //                     if(calcR[q][w]==num2){
+    //                         calcRR.push(calcR[q])
+    //                         console.log(calcR[q])
+    //                      }
+    //                 }      
+    //             }
+    //             console.log(calcRR)
+                
+    //   }
+   
   
     OperandInput = (i) => {
         let { inputsValuesArr } = this.state;
@@ -96,6 +122,16 @@ class BtnNumGroup extends Component {
 
         this.setState({ inputsValuesArr });
         console.log(i + ' active')
+    }
+
+    deleteLastInput=()=>{
+    let { buttonsClickedArr, inputsValuesArr } = this.state;
+       buttonsClickedArr.pop();
+       inputsValuesArr.pop();
+       console.log(buttonsClickedArr , inputsValuesArr)
+       let prazno='praznooooooo'
+       this.setState({buttonsClickedArr, inputsValuesArr,prazno});
+      
     }
 
     render() {
@@ -115,7 +151,10 @@ class BtnNumGroup extends Component {
                 <button className='button-operand' onClick={() => this.OperandInput('/')}>/</button>
                 <button className='button-operand' onClick={() => this.OperandInput('(')}>(</button>
                 <button className='button-operand' onClick={() => this.OperandInput(')')}>)</button>
-            {this.izracunaj(this.racun(2,this.racun(2,2)),2)}
+                <button className='button-functional' onClick={this.deleteLastInput}>DELETE</button>
+               
+                
+            {/* <button onClick={this.racun(20)}>dugme</button> */}       
             </div>
         );
     }

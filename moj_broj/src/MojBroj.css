@@ -88,7 +88,7 @@ display: inline-block;
 .button-disabled {
   opacity: 0.4;
   color: white;
-  background-color: rgb(5, 100, 5);
+  background-color: lightskyblue;
   border: 1px solid white;
   border-radius: 0%;
   font-weight: 500;
@@ -105,7 +105,7 @@ display: inline-block;
   .button-enabled {
       opacity: 0.4;
       color: white;
-      background-color: rgb(5, 100, 5);
+      background-color: darkslateblue;
       border: 1px solid white;
       border-radius: 0%;
       font-weight: 500;
