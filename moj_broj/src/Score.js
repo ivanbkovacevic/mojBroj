@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './MojBroj.css';
+import Funkcija from './Funkcija';
 
 class Score extends Component {
 
@@ -36,18 +37,13 @@ class Score extends Component {
 
     }
 
-    racun2=(a,b)=>{
-        this.racun3=(a,b)=>{
-            return a+b;
-        }
-      return a+b;
-    }
+ 
 
 
     render() {
         return (
             <div>
-
+                <Funkcija />
                 <div className='uputstvo'>
                     <h5>UPUTSTVO:</h5>
                     <p>Pronadji trazeni broj. U matematicku operaciju mozete iskoristiti samo
@@ -64,7 +60,7 @@ class Score extends Component {
                 <div className='spinOuther'><div className='spin'>4</div></div>
                 <div className='spinOuther'><div className='spinR'>5</div></div>
                 {this.props.value}
-                {this.racun2(this.racun3(1,1),1)}
+             
                
             </div>
         );
