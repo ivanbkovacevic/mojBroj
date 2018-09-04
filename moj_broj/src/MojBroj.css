@@ -210,6 +210,43 @@ display: inline-block;
       font-size: 16px;
   }
 
+  .spinOuther{
+      position: relative;
+    background-color: blue;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    font-size: 45px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .spin {
+      position: absolute;
+    background-color: green;
+   width: 50px;
+   height: 30px;
+   font-size: 35px;
+   animation-name: spin;
+   animation-duration: 0.1s;
+   animation-fill-mode: forwards;
+   animation-iteration-count: 14;
+  }
+
+  .spinR {
+position: absolute;
+color: aliceblue;
+background-color: transparent;
+ width: 50px;
+ height: 30px;
+ font-size: 35px;
+ animation-name: spinR;
+ animation-duration: 0.8s;
+ animation-fill-mode: forwards;
+ animation-timing-function: ease-in-out;
+ 
+  }
+
 
 
   @keyframes  buttonDisapear {
@@ -226,3 +263,17 @@ display: inline-block;
            transform:translateY(+0px);
           }
   }
+
+  @keyframes spin {
+      0%{top:0px;}
+      25%{top:20px;}
+      50%{top:40px;}
+      75%{top:-30px;}
+      100%{top:0px;}
+  }
+  @keyframes spinR {
+    0%{transform:rotateZ(-15deg);transform:scale(0.2);opacity: 0;}
+    85%{transform:rotateZ(360deg);transform:scale(1.2);opacity: 1;}
+    100%{transform:rotateZ(360deg);transform:scale(1);opacity: 1;}
+   
+}

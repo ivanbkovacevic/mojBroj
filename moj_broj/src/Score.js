@@ -2,7 +2,38 @@ import React, { Component } from 'react';
 import './MojBroj.css';
 
 class Score extends Component {
-    
+
+    racun=(a)=>{
+        let rac=0;
+       
+        for(let i=1;i<10;i++){
+            for(let j=1;j<10;j++){
+                for(let k=1;k<10;k++){
+                    for(let l=1;l<10;l++){
+                        for(let m=10;m<20;m++){
+                          
+                                rac=i+j+k+l+m;
+                                if(rac==235){
+                                    let num1=String(i);
+                                    let num2=String(j);
+                                    let num3=String(k);
+                                    let num4=String(l);
+                                    let num5=String(m);
+                                  //  let num6=String(n);
+                                    let racString=num1+num2+num3+num4+num5;
+                                    return racString;
+                                
+                            }
+                        }
+                       
+                    }
+                  
+                }
+            }
+        }
+    }
+      
+
     render() {
         return (
             <div>
@@ -20,10 +51,14 @@ class Score extends Component {
                 <h5>{this.props.message}</h5>
               
                 <div id="time">00:00</div>
-               
+                <div className='spinOuther'><div className='spin'>4</div></div>
+                <div className='spinOuther'><div className='spinR'>5</div></div>
+                {this.props.value}
+           {this.racun(5)}
             </div>
         );
     }
+   
 }
 
 export default Score;
