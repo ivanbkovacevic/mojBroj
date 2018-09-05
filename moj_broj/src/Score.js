@@ -36,10 +36,6 @@ class Score extends Component {
         }
 
     }
-
- 
-
-
     render() {
         return (
             <div>
@@ -57,11 +53,9 @@ class Score extends Component {
                 <h5>{this.props.message}</h5>
 
                 <div id="time">00:00</div>
-                <div className='spinOuther'><div className='spin'>4</div></div>
+                {/* <div className='spinOuther'><div className='spin'>4</div></div>
                 <div className='spinOuther'><div className='spinR'>5</div></div>
-                {this.props.value}
-             
-               
+                {this.props.value} */}
             </div>
         );
     }

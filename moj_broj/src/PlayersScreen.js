@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
 
 class PlayersScreen extends Component {
+
+    state={
+        printedValues:[]
+    }
+    
+    componentDidUpdate=(prevProps, prevState)=>{
+        let {printedValues}=this.state;
+             printedValues=printedValues.slice();
+        if ( this.props.inputsValuesArr !== prevProps.inputsValuesArr) {
+            this.setState({ printedValues:this.props.inputsValuesArr});
+          }       
+        }
+
     render() {
+       let playersInput =  this.state.printedValues.map((input,i)=>{
+            return <span>{input}</span>
+             })
         return (
             <div>
 
             {/* <h2>PLAYERS INPUT: {dupliNumMesasage} {this.dupliNumInRowMesasage} {this.operandMessage}</h2> */}
   
-            <div className='playersIput'>{this.displayValue}  =
+            <div className='playersIput'> {playersInput} =
                <p className={this.showValue}> {this.value} </p>
               {/* <p>{this.score.message}</p> */}
   
