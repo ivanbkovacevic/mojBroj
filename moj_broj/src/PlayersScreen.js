@@ -4,34 +4,44 @@ class PlayersScreen extends Component {
 
     state={
         printedValues:[],
-        buttonsClicked:[]
+      
     }
     componentDidUpdate=(prevProps, prevState)=>{
         let {printedValues}=this.state;
              printedValues=printedValues.slice();
         if ( this.props.buttonsClicked !== prevProps.buttonsClicked) {
-            this.setState({ printedValues:this.props.buttonsClicked});
+            let lastButton=this.props.buttonsClicked;
+                lastButton=lastButton[lastButton.length-1];
+            printedValues.push(lastButton);
+            this.setState({ printedValues});
           }       
+        }
+
+        DeleteButtonsClicked=()=>{
+            let { printedValues}=this.state;
+            printedValues=printedValues.slice();
+            printedValues.pop(); 
+            this.setState({printedValues});
+    
         }
 
     render() {
      
        let playersInput =  this.state.printedValues.map((input,i)=>{
-            return <span key={i}>{input}</span>
+            return <span key={i}>{input.value}</span>
              })
         return (
             <div>
 
-            {/* <h2>PLAYERS INPUT: {dupliNumMesasage} {this.dupliNumInRowMesasage} {this.operandMessage}</h2> */}
-  
+         
+            <button className='button-functional' onClick={this.DeleteButtonsClicked}>DELETE</button>
             <div className='playersIput'> {playersInput} =
                <p className={this.showValue}> {this.value} </p>
-              {/* <p>{this.score.message}</p> */}
-  
+       
             </div>
             <br></br>
             <button className='button-functional' onClick={this.Calculate}>IZRACUNAJ</button>
-            <button className='button-functional' onClick={this.DeleteInputs}>OBRISI POSLEDNJE</button>
+           
             <button className='button-functional' onClick={this.ClearAll}>RESETUJ SVE</button>
             <button className='button-functional' onClick={this.generateSolution}>POGLEDAJ RESENJE</button>
           </div>
