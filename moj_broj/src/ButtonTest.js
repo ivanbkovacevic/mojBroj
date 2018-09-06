@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MojBroj.css';
 
-class ButtonNumber extends Component {
+class ButtonTest extends Component {
     state={
         isActive:true
     }
@@ -10,11 +10,11 @@ class ButtonNumber extends Component {
 
     render() {
         return (
-             <button  onClick={this.props.klik} 
+             <button  onClick={this.props.clicked}
              className={this.props.isActive ? 'button-enabled' : 'button-disabled'}>{this.props.value}</button>
 
         );
     }
 }
 
-export default ButtonNumber;
+export default ButtonTest;

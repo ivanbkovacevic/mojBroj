@@ -3,20 +3,21 @@ import React, { Component } from 'react';
 class PlayersScreen extends Component {
 
     state={
-        printedValues:[]
+        printedValues:[],
+        buttonsClicked:[]
     }
-    
     componentDidUpdate=(prevProps, prevState)=>{
         let {printedValues}=this.state;
              printedValues=printedValues.slice();
-        if ( this.props.inputsValuesArr !== prevProps.inputsValuesArr) {
-            this.setState({ printedValues:this.props.inputsValuesArr});
+        if ( this.props.buttonsClicked !== prevProps.buttonsClicked) {
+            this.setState({ printedValues:this.props.buttonsClicked});
           }       
         }
 
     render() {
+     
        let playersInput =  this.state.printedValues.map((input,i)=>{
-            return <span>{input}</span>
+            return <span key={i}>{input}</span>
              })
         return (
             <div>
@@ -33,10 +34,6 @@ class PlayersScreen extends Component {
             <button className='button-functional' onClick={this.DeleteInputs}>OBRISI POSLEDNJE</button>
             <button className='button-functional' onClick={this.ClearAll}>RESETUJ SVE</button>
             <button className='button-functional' onClick={this.generateSolution}>POGLEDAJ RESENJE</button>
-          
-  
-            
-  
           </div>
         );
     }
