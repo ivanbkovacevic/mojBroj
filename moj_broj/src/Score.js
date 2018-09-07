@@ -39,7 +39,7 @@ class Score extends Component {
     render() {
         return (
             <div>
-                <Funkcija />
+              {/* //  <Funkcija /> */}
                 <div className='uputstvo'>
                     <h5>UPUTSTVO:</h5>
                     <p>Pronadji trazeni broj. U matematicku operaciju mozete iskoristiti samo

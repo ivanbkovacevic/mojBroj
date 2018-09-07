@@ -112,6 +112,7 @@ display: inline-block;
       height: 50px;
       padding: 5px 35px;
       margin-top: 10px;
+      cursor: pointer;
       /* animation-name: buttonApear;
       animation-duration: 0.4s;
       animation-fill-mode: forwards; */

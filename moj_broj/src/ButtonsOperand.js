@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MojBroj.css';
 
-class ButtonsMain extends Component {
+class ButtonsOperand extends Component {
     
     render() {
         return (
@@ -12,4 +12,4 @@ class ButtonsMain extends Component {
     }
 }
 
-export default ButtonsMain;
+export default ButtonsOperand;
