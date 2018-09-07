@@ -6,7 +6,7 @@ class ButtonsOperand extends Component {
     render() {
         return (
              <button  onClick={this.props.clicked}
-               className={this.props.isActive ?   'button-disabled' : 'button-enabled'} disabled={this.props.isActive}>{this.props.value}</button>
+               className={'button-operand'} disabled={this.props.isActive}>{this.props.value}</button>
 
         );
     }
