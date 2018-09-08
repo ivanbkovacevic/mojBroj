@@ -6,25 +6,6 @@ class PlayersScreen extends Component {
         buttonsClicked:[],
       
     }
-    // componentDidUpdate=(prevProps, prevState)=>{
-    //     let {printedValues}=this.state;
-    //          printedValues=printedValues.slice();
-    //     if ( this.props.buttonsClicked !== prevProps.buttonsClicked) {
-    //         let lastButton=this.props.buttonsClicked;
-    //             lastButton=lastButton[lastButton.length-1];
-    //         printedValues.push(lastButton);
-    //         this.setState({ printedValues});
-    //       }       
-    //     }
-
-        DeleteButtonsClicked=()=>{
-            let { printedValues}=this.state;
-            printedValues=printedValues.slice();
-            printedValues.pop(); 
-            this.setState({printedValues});
-    
-        }
-
 
 
     render() {
