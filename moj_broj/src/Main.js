@@ -36,12 +36,13 @@ class BtnNumGroup extends Component {
         let max = 9;
         let min1 = 100;
         let max1 = 900;
-        let operand1 = { id: 6, value: '+', clicked: false, order: 0, alowed: true, type: 'operand', class: 'button-operand' };
-        let operand2 = { id: 7, value: '-', clicked: false, order: 0, alowed: true, type: 'operand', class: 'button-operand' };
-        let operand3 = { id: 8, value: '*', clicked: false, order: 0, alowed: true, type: 'operand', class: 'button-operand' };
-        let operand4 = { id: 9, value: '/', clicked: false, order: 0, alowed: true, type: 'operand', class: 'button-operand' };
-        let operand5 = { id: 10, value: '(', clicked: false, order: 0, alowed: true, type: 'special', class: 'button-operand' };
-        let operand6 = { id: 11, value: ')', clicked: false, order: 0, alowed: true, type: 'special', class: 'button-operand' };
+        let operand1 = { id: 0, value: '+', clicked: false, order: 0, alowed: true, type: 'operand', class: 'button-operand' };
+        let operand2 = { id: 1, value: '-', clicked: false, order: 0, alowed: true, type: 'operand', class: 'button-operand' };
+        let operand3 = { id: 2, value: '*', clicked: false, order: 0, alowed: true, type: 'operand', class: 'button-operand' };
+        let operand4 = { id: 3, value: '/', clicked: false, order: 0, alowed: true, type: 'operand', class: 'button-operand' };
+
+        let operand5 = { id: 0, value: '(', clicked: false, order: 0, alowed: true, type: 'special', class: 'button-operand' };
+        let operand6 = { id: 1, value: ')', clicked: false, order: 0, alowed: true, type: 'special', class: 'button-operand' };
 
         let target1 = { id: 0, value: Math.floor(Math.random() * (max - min + 1)) + min, clicked: false, order: 0, alowed: true, type: 'number' }
         let target2 = { id: 1, value: Math.floor(Math.random() * (max - min + 1)) + min, clicked: false, order: 0, alowed: true, type: 'number' }
@@ -97,7 +98,7 @@ class BtnNumGroup extends Component {
     
     }
 
-    ButtonOperandClicked = (id, j, alowed, type) => {
+    ButtonOperandClicked = (id, i, alowed, type) => {
         let { buttonsOperandArray, buttonsClicked, buttonOrder, buttonType, numbersAlowed, operandsAlowed, message } = this.state;
         if(buttonsClicked.length === 0){
            null;
@@ -105,9 +106,12 @@ class BtnNumGroup extends Component {
             if(operandsAlowed===true){
                 buttonsOperandArray = buttonsOperandArray.slice();
                 buttonOrder+=1;
-                buttonsOperandArray[j].order = buttonOrder;
-                buttonsOperandArray[j].clicked = !buttonsOperandArray[j].clicked;
-                buttonsClicked.push(buttonsOperandArray[j]);
+                let btnOprClickedArr=buttonsOperandArray.filter(function(btn) {
+                    return btn.id===id;
+                })
+               let btnOprClicked=btnOprClickedArr[0];
+             //   btnOprClicked.clicked = !btnOprClicked.clicked;
+                buttonsClicked.push( btnOprClicked);
                 buttonsClicked = buttonsClicked.sort((obj1, obj2) => { return obj1.order - obj2.order });
                 numbersAlowed = true
                 operandsAlowed = false;
@@ -194,12 +198,12 @@ class BtnNumGroup extends Component {
             )
 
             buttonsOperand = (
-                this.state.buttonsOperandArray.map((btn, j) => {
+                this.state.buttonsOperandArray.map((btn, i) => {
                     return (<ButtonsOperand value={btn.value}
-                        id={j}
+                        id={i}
                        // isActive={btn.clicked}
                         isDisabled={this.state.operandDisabled}
-                        clicked={() => this.ButtonOperandClicked(btn.id, j, btn.alowed, btn.type)}
+                        clicked={() => this.ButtonOperandClicked(btn.id, i, btn.alowed, btn.type)}
                       //  buttonsClicked={buttonsClicked}
                          />
                     )
