@@ -6,10 +6,12 @@ import './MojBroj.css';
 import Score from './Score';
 import PlayersScreen from './PlayersScreen';
 
+
 class BtnNumGroup extends Component {
     state = {
     
         targetNumber: 0,
+        clock:{m:0,s:0},
         
         numbersArray: [],
         operandsArray: [],
@@ -30,7 +32,7 @@ class BtnNumGroup extends Component {
     }
 
     generateTarget = () => {  // pravi target brojeve i dugmad kao objekti
-        let { numbersArray, gameStarted,  operandsArray,oprSpecArray,message } = this.state;
+        let { numbersArray, gameStarted,  operandsArray,oprSpecArray,message,clock } = this.state;
       
       if(gameStarted=== false){
         let min = 1;
@@ -67,6 +69,8 @@ class BtnNumGroup extends Component {
         oprSpecArray=[operand5, operand6];
         gameStarted=true;
 
+        
+        
         this.setState({ targetNumber, target1, target2, target3, target4, target5, target6, numbersArray,  operandsArray, oprSpecArray,gameStarted })
         
       }else{
@@ -75,8 +79,6 @@ class BtnNumGroup extends Component {
             this.setState({message});
       }
        
-  
-        
     }
 
     ButtonClicked = (id, i, alowed, type) => {
@@ -149,7 +151,7 @@ class BtnNumGroup extends Component {
 
 
     DeleteButtonsClicked = () => {  // brisanje upisanih dugmadi i vracanje dugmadi u funkciju  // koristi se findIndex sa id da bi se pronaslo dugme
-        let { numbersArray,  operandsArray, btnClickedArr, buttonOrder, message, numbersAlowed, operandsAlowed } = this.state;
+        let { numbersArray,  operandsArray, btnClickedArr, buttonOrder, message, numbersAlowed, operandsAlowed,solution } = this.state;
         btnClickedArr = btnClickedArr.slice();
         numbersArray = numbersArray.slice();
          operandsArray= operandsArray.slice();
@@ -180,16 +182,25 @@ class BtnNumGroup extends Component {
            }
            
            if(btnClickedArr.length ==0){
-            message="Sve ste obrisali";
+            message="";
+            solution=''
             buttonOrder=0;
             numbersAlowed = true;
             operandsAlowed = true;
-            this.setState({message,operandsAlowed,numbersAlowed,buttonOrder});
+            this.setState({message,operandsAlowed,numbersAlowed,buttonOrder,solution});
            }
     }
 
     Calculate=()=>{
-        let  {btnClickedArr,win,loss,targetNumber}  = this.state;
+        let  {btnClickedArr,win,loss,targetNumber,message}  = this.state;
+        let sol=null;
+        let calc=null;
+        for(let i in btnClickedArr){
+           calc+=btnClickedArr[i].value;
+
+        }
+        
+        calc=Number(calc);
         
         let solutionString=[];
            let solution= btnClickedArr.map(btn=>{
@@ -203,15 +214,17 @@ class BtnNumGroup extends Component {
                 solution=eval(solution);
                 this.setState({solution});
             }else{
-                solution='Lose upisana matematicka operacija';
-                this.setState({solution});
+                message='Lose upisana matematicka operacija';
+                this.setState({message});
             }
             if(solution===targetNumber){
                 win++;
-                this.setState({win});
+                message='TACNO RESENJE - CESTITAMO!'
+                this.setState({win,message,solution});
             }else{
                 loss++;
-                this.setState({loss});
+                message='RESENJE NIJE TACNO :( '
+                this.setState({loss,message,solution});
             }
        
     }
@@ -281,9 +294,10 @@ class BtnNumGroup extends Component {
         return (
             <div>
                 <div className='state'><per>{JSON.stringify(this.state, null, 2)}</per></div>
-                <Score    win={win}  loss={loss}/>
+                <Score    win={win}  loss={loss} clock={this.state.clock}/>
+            
                 <div className='button-target'>{this.state.targetNumber}</div>
-                <div>' {this.state.message} ' </div>
+                <div> </div>
                 <div>
                 <button className='button-functional' onClick={this.generateTarget}>IZABERI BROJEVE</button>
                 <button className='button-functional' onClick={this.DeleteButtonsClicked}>OBRISI POSLEDNJE</button>
@@ -296,6 +310,7 @@ class BtnNumGroup extends Component {
            
                 <PlayersScreen btnClickedArr={this.state.btnClickedArr}
                 solution={solution}
+                message={this.state.message}
              
                 />
             </div>
