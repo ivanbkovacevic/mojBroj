@@ -213,10 +213,12 @@ class BtnNumGroup extends Component {
         if (solutionLch === ')') {
             solution = eval(solution);
             if (solution === targetNumber) {
+                solution = eval(solution);
                 win++;
                 message = 'TACNO RESENJE - CESTITAMO!'
                 this.setState({ win, message, solution });
             }else {
+                solution = eval(solution);
                 loss++;
                 message = 'RESENJE NIJE TACNO :( '
                 this.setState({ loss, message, solution });
@@ -224,26 +226,17 @@ class BtnNumGroup extends Component {
 
         } else if(solution === targetNumber){
             solutionLch = Number(solutionLch);
-            solution = eval(solution);
-             
+            solution = eval(solution);  
                 win++;
                 message = 'TACNO RESENJE - CESTITAMO!'
                 this.setState({ win, message, solution });
-           
-            }else if(solutionLch === '(' ){
-                loss++;
-                message = 'NEPRAVILNA MATEMATICKA OPERACIJA :( '
-                this.setState({ loss, message, solution });
             }  else {
+                solution = eval(solution);
                 loss++;
                 message = 'RESENJE NIJE TACNO :( '
                 this.setState({ loss, message, solution });
             }
-        
-
     }
-
-
     ResetAll = () => {
         this.setState({
             targetNumber: 0,
