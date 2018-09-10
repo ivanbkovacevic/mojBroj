@@ -32,13 +32,57 @@ display: inline-block;
   padding: 5px 25px;
   margin-top: 5px;
   margin-bottom: 10px;
- 
 }
 
 .button-functional:hover {
-  background-color: rgb(1, 143, 1);
+    background-color: rgb(1, 143, 1);
+    color: white;
+    transform: scale(1.05);
+  }
+
+.button-functional--reset{
+    flex: 1 1 auto ;
+    color: white;
+    background-color: rgb(189, 8, 84);
+    border: 1px solid white;
+    border-radius: 0%;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.5s;
+    /* width: 190px; */
+    height: 50px;
+    padding: 5px 25px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+.button-functional--reset:hover {
+  background-color: rgb(219, 9, 97);
   color: white;
-  transform: scale(1.05);
+  transform: scale(1.03);
+}
+
+.button-functional--calc{
+    flex: 1 1 auto ;
+  
+    color: white;
+    background-color: rgb(67, 24, 221);
+    border: 1px solid white;
+    border-radius: 0%;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.5s;
+    /* width: 190px; */
+    height: 50px;
+    padding: 5px 25px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+.button-functional--calc:hover {
+  background-color: rgb(219, 9, 97);
+  color: white;
+  transform: scale(1.03);
 }
 
 .button-win{
@@ -88,6 +132,7 @@ display: inline-block;
 }
 
 .button-disabled {
+    flex: 1 1 auto ;
   opacity: 0.4;
   color: white;
   background-color: lightskyblue;
@@ -96,9 +141,9 @@ display: inline-block;
   font-size: 30px;
   font-weight: 500;
   transition: all 0.5s;
-  width: 170px;
+  /* width: 160px; */
   height: 50px;
-  padding: 5px 35px;
+  padding: 5px 5px;
   margin-top: 10px;
   animation-name: buttonDisapear;
   animation-duration: 0.4s;
@@ -106,6 +151,7 @@ display: inline-block;
   }
 
   .button-enabled {
+    flex: 1 1 auto ;
       opacity: 0.4;
       color: white;
       background-color: darkslateblue;
@@ -114,9 +160,9 @@ display: inline-block;
       font-size: 30px;
       font-weight: 500;
       transition: all 0.5s;
-      width: 170px;
+      /* width: 160px; */
       height: 50px;
-      padding: 5px 35px;
+      padding: 5px 5px;
       margin-top: 10px;
       cursor: pointer;
       /* animation-name: buttonApear;
@@ -128,41 +174,10 @@ display: inline-block;
       animation-timing-function: ease-in-out;
       }
 
-      
-/* 
-  .buttonGroup{
-     
-      font-weight: 500;
-      font-size: 20px;
-      width: 70%;
-      height: 150px;
-      padding: 5px ;
-      margin: 5px;
-  } */
-
-  /* .buttonGroup1{
-      display: flex;
-      justify-content: stretch;
-      font-weight: 500;
-      font-size: 20px;
-      width: 70%;
-      height: 60px;
-      padding: 5px ;
-      margin: 5px;
-  } */
-/* 
-  .buttonGroup2{
-      display: flex;
-      justify-content: stretch;
-      font-weight: 500;
-      font-size: 20px;
-      width: 70%;
-      height: 70px;
-      padding: 5px ;
-      margin: 5px;
-  } */
+    
 
   .button-operand{
+    flex: 1 1 auto ;
       color: white;
       background-color: darkorange;
       border: 1px solid white;
@@ -170,9 +185,9 @@ display: inline-block;
       font-size: 30px;
       font-weight: 500;
       transition: all 0.5s;
-      width: 170px;
+      /* width: 160px; */
       height: 50px;
-      padding: 5px 35px;
+      padding: 5px 5px;
       margin-top: 5px;
      
   }
@@ -189,9 +204,34 @@ display: inline-block;
       transform: scale(1.1);
   }
 
-  .playersIput{
-      background-color: rgb(106, 199, 106);
-      border: 1px solid rgb(245, 8, 8);
+  .container--btnNum {
+      display: flex;
+      flex-direction: row;
+    
+  }
+
+  .container--btnOpr {
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.container--btnFunc {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+}
+
+.container--plyInp{
+    display: flex;
+    flex-direction: row;
+}
+
+  .playersInput{
+    flex: 1 1 auto ;
+      background-color: rgb(243, 247, 211);
+    box-shadow: 2px 2px 5px;
       border-radius: 0%;
       font-weight: 500;
       font-size: 40px;

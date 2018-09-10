@@ -320,59 +320,61 @@ class BtnNumGroup extends Component {
             <div className='container-fluid'>
                 {/* <div className='state'><per>{JSON.stringify(this.state, null, 2)}</per></div> */}
                 <Row>
-                    <Col lg={2}></Col>
-                    <Col lg={8}>
+                    <Col lg={0} ></Col>
+                    <Col lg={12} >
                         <Score win={win} loss={loss} clock={this.state.clock} />
                     </Col>
-                    <Col lg={2}></Col>
+                    <Col lg={0}></Col>
                 </Row>
 
                 <Row>
-                    <Col lg={2}></Col>
-                    <Col lg={8}>
+                    <Col lg={0}></Col>
+                    <Col lg={12}>
                         <div className='button-target'>{this.state.targetNumber}</div>
                     </Col>
-                    <Col lg={2}></Col>
+                    <Col lg={0}></Col>
                 </Row>
 
                 <Row>
-                    <Col lg={2}></Col>
-                    <Col lg={8}>
-                        <button className='button-functional' onClick={this.ExtraNumbers}>DODAJ JOS 2 BROJA</button>
-                        <button className='button-functional' onClick={this.generateTarget}>IZABERI BROJEVE</button>
-                        <button className='button-functional' onClick={this.DeleteButtonsClicked}>OBRISI POSLEDNJE</button>
-                        <button className='button-functional' onClick={this.Calculate}>IZRACUNAJ</button>
-                        <button className='button-functional' onClick={this.ResetAll} resetovati={this.ResetAll}  >RESETUJ SVE</button>
+                    <Col lg={0}></Col>
+                    <Col lg={12}>
+                    <div className='container--btnFunc'>
+                        <button className='button-functional--reset' onClick={this.ExtraNumbers}>DODAJ JOS 2 BROJA</button>
+                        <button className='button-functional--calc' onClick={this.generateTarget}>IZABERI BROJEVE</button>
+                        <button className='button-functional--reset' onClick={this.DeleteButtonsClicked}>OBRISI POSLEDNJE</button>
+                        <button className='button-functional--calc' onClick={this.Calculate}>IZRACUNAJ</button>
+                        <button className='button-functional--reset' onClick={this.ResetAll} resetovati={this.ResetAll}  >RESETUJ SVE</button>
+                        </div>
                     </Col>
-                    <Col lg={2}></Col>
+                    <Col lg={0}></Col>
 
                 </Row>
 
                 <Row>
-                    <Col lg={2}></Col>
-                    <Col lg={8}>
-                        {buttonsNum}
-
+                    <Col lg={0}></Col>
+                    <Col lg={12}>
+                    <div className='container--btnNum'>{buttonsNum}</div>
                     </Col>
-                    <Col lg={2}></Col>
+                    <Col lg={0}></Col>
                 </Row>
                 <Row>
-                    <Col lg={2}></Col>
-                    <Col lg={8}>
-                        {buttonsOperand} {buttonsOperandSpecial}
+                    <Col lg={0}></Col>
+                    <Col lg={12}>
+                    <div className='container--btnOpr'> {buttonsOperand} {buttonsOperandSpecial}</div>
+                       
                     </Col>
-                    <Col lg={2}></Col>
+                    <Col lg={0}></Col>
                 </Row>
 
                 <Row>
-                    <Col lg={2}></Col>
-                    <Col lg={8}>
+                    <Col lg={0}></Col>
+                    <Col lg={12}>
                         <PlayersScreen btnClickedArr={this.state.btnClickedArr}
                             solution={solution}
                             message={this.state.message}
                         />
                     </Col>
-                    <Col lg={2}></Col>
+                    <Col lg={0}></Col>
                 </Row>
 
             </div>

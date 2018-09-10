@@ -46,8 +46,8 @@ class Score extends Component {
                     <span>     PORAZI  : <button className='button-loss'>{this.props.loss} </button>  </span>
                     <span>{this.props.message}</span>
 
-                    <div id="time">{this.state.clock}</div>
-                    <button onClick={this.reset}>reset timer</button>
+                    {/* <div id="time">{this.state.clock}</div>
+                    <button onClick={this.reset}>reset timer</button> */}
                 </div>
             </div>
         );

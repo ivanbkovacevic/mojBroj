@@ -4,9 +4,6 @@ import {Alert} from 'react-bootstrap';
 
 class PlayersScreen extends Component {
 
-      
-      
-
     render() {
         let message=null;
         let playersInput=this.props.btnClickedArr; 
@@ -16,7 +13,7 @@ class PlayersScreen extends Component {
 
              if (this.props.message.length >0) {
                  message=(
-                  <Alert bsStyle="danger" className='alert' onDismiss={this.handleDismiss}>
+                  <Alert bsStyle="info" className='alert' onDismiss={this.handleDismiss}>
                     <p>
                         {this.props.message}
                     </p>
@@ -24,8 +21,8 @@ class PlayersScreen extends Component {
              }
                 
         return (
-            <div>
-            <div className='playersIput'> {playersInput} = <span>{this.props.solution} </span>  
+            <div className='container--plyInp'>
+            <div className='playersInput'> {playersInput} = <span>{this.props.solution} </span>  
             {message}
             </div>
           </div>
