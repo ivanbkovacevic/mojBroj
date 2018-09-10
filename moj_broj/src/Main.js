@@ -33,7 +33,7 @@ class BtnNumGroup extends Component {
         operandDisabled: false,
         message: '',
         solution: '',
-        klasaSolution:''
+        klasaSolution:'playersInput'
     }
 
     generateTarget = () => {  // pravi target brojeve i dugmad kao objekti
@@ -258,7 +258,8 @@ class BtnNumGroup extends Component {
             isDisabled: false,
             operandDisabled: false,
             message: '',
-            solution: ''
+            solution: '',
+            klasaSolution:'playersInput'
         });
     }
 
