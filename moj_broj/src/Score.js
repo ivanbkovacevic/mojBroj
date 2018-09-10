@@ -35,13 +35,11 @@ class Score extends Component {
             <div>
                 {/* //  <Funkcija /> */}
                 <div className='uputstvo'>
-                    <h5>UPUTSTVO:</h5>
-                    <p>Pronadji trazeni broj. U matematicku operaciju mozete iskoristiti samo
-                        jedanput jedan od ponudjenih brojeva. Ne smete izabrati dva broja zaredom.
-                     Operacija mora da bude matematicki ispravna.</p>
+                    <h3>UPUTSTVO:</h3>
+                    <p>Pronađi traženi broj postavkom datih brojeva u matematičku jednačinu. Možete iskoristiti svaki od ponuđenih brojeva samo jedanput. 
+                        Ne smete postaviti dva broja zaredom, bez znaka operacije između njih. Operacija mora biti matematički ispravna.</p>
                 </div>
                 <div className='semafor'>
-                    <h2>REZULTAT</h2>
                     <span>POBEDE: <button className='button-win'>{this.props.win} </button> </span>
                     <span>     PORAZI  : <button className='button-loss'>{this.props.loss} </button>  </span>
                     <span>{this.props.message}</span>

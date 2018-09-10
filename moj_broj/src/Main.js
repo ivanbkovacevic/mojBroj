@@ -61,8 +61,7 @@ class BtnNumGroup extends Component {
             let target6 = [25, 50, 75, 100, 25, 50, 75, 100, 25, 50];
             let index1 = Math.floor(Math.random() * 10);
             target6 = { id: 5, value: target6[index1], clicked: false, order: 0, alowed: true, type: 'number' }
-            let target7 = { id: 6, value: Math.floor(Math.random() * (max - min + 1)) + min, clicked: false, order: 0, alowed: true, type: 'number' }
-            let target8 = { id: 7, value: Math.floor(Math.random() * (max - min + 1)) + min, clicked: false, order: 0, alowed: true, type: 'number' }
+         
             let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
 
 
@@ -75,7 +74,7 @@ class BtnNumGroup extends Component {
 
             gameStarted = true;
             message = '';
-            this.setState({ targetNumber, target1, target2, target3, target4, target5, target6, target7, target8, numbersArray, numSpecArr, operandsArray, oprSpecArray, gameStarted, message })
+            this.setState({ targetNumber, target1, target2, target3, target4, target5, target6, numbersArray, numSpecArr, operandsArray, oprSpecArray, gameStarted, message })
 
         } else {
 
@@ -85,18 +84,6 @@ class BtnNumGroup extends Component {
 
     }
 
-    ExtraNumbers = () => {
-        let { numbersArray, target7, target8, message } = this.state;
-        if (numbersArray.length > 0) {
-            numbersArray.unshift(target7, target8);
-            this.setState({ numbersArray });
-        } else {
-            message = 'Morate prvo pokrenuti standardnu varijantu';
-            this.setState({ message });
-        }
-
-
-    }
 
     ButtonClicked = (id, i, alowed, type) => {
         let { numbersArray, btnClickedArr, buttonOrder, buttonType, numbersAlowed, operandsAlowed, message } = this.state;  //// dugme novo kao objekat ... ovde se setuje kada se klikne na njega
@@ -128,7 +115,7 @@ class BtnNumGroup extends Component {
     ButtonOperandClicked = (id, i, alowed, type) => {
         let { btnClickedArr, buttonOrder, numbersAlowed, operandsAlowed, operandsArray, message } = this.state;
         message='';
-        if (numbersAlowed === false) {
+        if (operandsAlowed === true) {
             operandsArray = operandsArray.slice();
             buttonOrder += 1;  ////////// redovni destructuring 
             ///////////////////////////////////////////////////////////////////////////////
@@ -185,15 +172,17 @@ class BtnNumGroup extends Component {
                 btnClickedArr.pop();
                 numbersAlowed = true;
                 operandsAlowed = false;
-                this.setState({ btnClickedArr, numbersArray, buttonOrder, numbersAlowed, operandsAlowed });
+                message='';
+                this.setState({ btnClickedArr, numbersArray, buttonOrder, numbersAlowed,message, operandsAlowed });
 
             } else if (buttonLast.type === 'operand') {
                 let indexOpr = operandsArray.findIndex(x => x.id === buttonLast.id);
                 operandsArray[indexOpr].clicked = !operandsArray[indexOpr].clicked;
                 btnClickedArr.pop();
-                numbersAlowed = true;
-                operandsAlowed = false;
-                this.setState({ btnClickedArr, operandsArray, buttonOrder, numbersAlowed, operandsAlowed });
+                numbersAlowed = false;
+                operandsAlowed = true;
+                message='';
+                this.setState({ btnClickedArr, operandsArray, buttonOrder, numbersAlowed,message, operandsAlowed });
             } else {
                 btnClickedArr.pop();
                 this.setState({ btnClickedArr });
@@ -213,8 +202,6 @@ class BtnNumGroup extends Component {
     Calculate = () => {
         let { btnClickedArr, win, loss, targetNumber, message } = this.state;
 
-        //     let calc=eval((5+25)*5);
-        //   calc;
         let solutionString = [];
         let solution = btnClickedArr.map(btn => {
             return solutionString.push(btn.value)
@@ -222,34 +209,37 @@ class BtnNumGroup extends Component {
         solution = solutionString.toString();
         solution = solution.replace(/,/g, " ");
         let solutionLch = solution.slice(-1);
+        
         if (solutionLch === ')') {
             solution = eval(solution);
             if (solution === targetNumber) {
                 win++;
                 message = 'TACNO RESENJE - CESTITAMO!'
                 this.setState({ win, message, solution });
-            } else {
+            }else {
                 loss++;
                 message = 'RESENJE NIJE TACNO :( '
                 this.setState({ loss, message, solution });
             }
 
-        } else {
+        } else if(solution === targetNumber){
             solutionLch = Number(solutionLch);
             solution = eval(solution);
-            if (solution === targetNumber) {
+             
                 win++;
                 message = 'TACNO RESENJE - CESTITAMO!'
                 this.setState({ win, message, solution });
-            } else {
+           
+            }else if(solutionLch === '(' ){
+                loss++;
+                message = 'NEPRAVILNA MATEMATICKA OPERACIJA :( '
+                this.setState({ loss, message, solution });
+            }  else {
                 loss++;
                 message = 'RESENJE NIJE TACNO :( '
                 this.setState({ loss, message, solution });
             }
-        }
-
-
-
+        
 
     }
 
@@ -339,11 +329,10 @@ class BtnNumGroup extends Component {
                     <Col lg={0}></Col>
                     <Col lg={12}>
                     <div className='container--btnFunc'>
-                        <button className='button-functional--reset' onClick={this.ExtraNumbers}>DODAJ JOS 2 BROJA</button>
-                        <button className='button-functional--calc' onClick={this.generateTarget}>IZABERI BROJEVE</button>
+                        <button className='button-functional--calc' onClick={this.generateTarget}>START</button>
                         <button className='button-functional--reset' onClick={this.DeleteButtonsClicked}>OBRISI POSLEDNJE</button>
-                        <button className='button-functional--calc' onClick={this.Calculate}>IZRACUNAJ</button>
-                        <button className='button-functional--reset' onClick={this.ResetAll} resetovati={this.ResetAll}  >RESETUJ SVE</button>
+                        <button className='button-functional--eqa' onClick={this.Calculate}> = </button>
+                        <button className='button-functional--reset' onClick={this.ResetAll} resetovati={this.ResetAll}>RESETUJ SVE</button>
                         </div>
                     </Col>
                     <Col lg={0}></Col>
