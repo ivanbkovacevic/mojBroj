@@ -32,7 +32,8 @@ class BtnNumGroup extends Component {
         isDisabled: false,
         operandDisabled: false,
         message: '',
-        solution: ''
+        solution: '',
+        klasaSolution:''
     }
 
     generateTarget = () => {  // pravi target brojeve i dugmad kao objekti
@@ -200,7 +201,7 @@ class BtnNumGroup extends Component {
     }
 
     Calculate = () => {
-        let { btnClickedArr, win, loss, targetNumber, message } = this.state;
+        let { btnClickedArr, win, loss, targetNumber, message,klasaSolution } = this.state;
 
         let solutionString = [];
         let solution = btnClickedArr.map(btn => {
@@ -215,26 +216,30 @@ class BtnNumGroup extends Component {
             if (solution === targetNumber) {
                 solution = eval(solution);
                 win++;
+                klasaSolution='correct';
                 message = 'TACNO RESENJE - CESTITAMO!'
-                this.setState({ win, message, solution });
+                this.setState({ win, message, solution,klasaSolution });
             }else {
                 solution = eval(solution);
                 loss++;
-                message = 'RESENJE NIJE TACNO :( '
-                this.setState({ loss, message, solution });
+                klasaSolution='wrong';
+                message = 'RESENJE NIJE TACNO :( ';
+                this.setState({ loss, message, solution,klasaSolution });
             }
 
         } else if(solution === targetNumber){
             solutionLch = Number(solutionLch);
             solution = eval(solution);  
                 win++;
-                message = 'TACNO RESENJE - CESTITAMO!'
-                this.setState({ win, message, solution });
+                message = 'TACNO RESENJE - CESTITAMO!';
+                klasaSolution='correct';
+                this.setState({ win, message, solution,klasaSolution });
             }  else {
                 solution = eval(solution);
                 loss++;
-                message = 'RESENJE NIJE TACNO :( '
-                this.setState({ loss, message, solution });
+                message = 'RESENJE NIJE TACNO :( ';
+                klasaSolution='wrong';
+                this.setState({ loss, message, solution,klasaSolution });
             }
     }
     ResetAll = () => {
@@ -357,6 +362,7 @@ class BtnNumGroup extends Component {
                         <PlayersScreen btnClickedArr={this.state.btnClickedArr}
                             solution={solution}
                             message={this.state.message}
+                            klasaSolution={this.state.klasaSolution}
                         />
                     </Col>
                     <Col lg={0}></Col>

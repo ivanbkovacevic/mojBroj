@@ -307,6 +307,36 @@ transform: scale(1.03);
       margin-bottom: 50px;
   }
 
+  .correct{
+    flex: 1 1 auto ;
+    color:white;
+      background-color:  darkcyan;
+      box-shadow: 2px 2px 5px;
+      border: 1px solid white;
+      font-weight: 500;
+      font-size: 2rem;
+    
+      height: 150px;
+      padding: 5px 35px;
+     
+      margin-bottom: 50px;
+  }
+
+  .wrong{
+    flex: 1 1 auto ;
+    color:white;
+      background-color: red;
+      box-shadow: 2px 2px 5px;
+      border: 1px solid white;
+      font-weight: 500;
+      font-size: 2rem;
+    
+      height: 150px;
+      padding: 5px 35px;
+     
+      margin-bottom: 50px;
+  }
+
   .state{
       position: absolute;
       font-size: 16px;
