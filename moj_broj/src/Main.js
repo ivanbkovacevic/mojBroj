@@ -320,7 +320,10 @@ class BtnNumGroup extends Component {
                 <Row>
                     <Col lg={0}></Col>
                     <Col lg={12}>
-                        <div className='button-target'>{this.state.targetNumber}</div>
+                   
+                        <div className='button-target'>
+                        <h4>TRAŽENI BROJ</h4>
+                        {this.state.targetNumber}</div>
                     </Col>
                     <Col lg={0}></Col>
                 </Row>
@@ -329,8 +332,8 @@ class BtnNumGroup extends Component {
                     <Col lg={0}></Col>
                     <Col lg={12}>
                     <div className='container--btnFunc'>
-                        <button className='button-functional--calc' onClick={this.generateTarget}>START</button>
-                        <button className='button-functional--reset' onClick={this.DeleteButtonsClicked}>OBRISI POSLEDNJE</button>
+                        <button className='button-functional--start' onClick={this.generateTarget}>START</button>
+                        <button className='button-functional--delete' onClick={this.DeleteButtonsClicked}>OBRIŠI POSLEDNJE</button>
                         <button className='button-functional--eqa' onClick={this.Calculate}> = </button>
                         <button className='button-functional--reset' onClick={this.ResetAll} resetovati={this.ResetAll}>RESETUJ SVE</button>
                         </div>

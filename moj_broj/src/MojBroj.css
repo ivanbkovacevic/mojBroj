@@ -44,7 +44,7 @@ display: inline-block;
     padding: 7px 40px;
 }
 
-.button-functional{
+/* .button-functional{
   color: white;
   background-color: darkgreen;
   border: 1px solid white;
@@ -63,12 +63,12 @@ display: inline-block;
     background-color: rgb(1, 143, 1);
     color: white;
     transform: scale(1.05);
-  }
+  } */
 
 .button-functional--reset{
     flex: 1 1 auto ;
     color: white;
-    background-color: rgb(189, 8, 84);
+    background-color: darkred;
     border: 1px solid white;
     border-radius: 0%;
     font-size: 1rem;
@@ -82,15 +82,37 @@ display: inline-block;
   }
 
 .button-functional--reset:hover {
-  background-color: rgb(219, 9, 97);
+  background-color: red;
   color: white;
   transform: scale(1.03);
 }
 
-.button-functional--calc{
+.button-functional--delete{
+  flex: 1 1 auto ;
+  color: white;
+  background-color: darkorange;
+  border: 1px solid white;
+  border-radius: 0%;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.5s;
+  /* width: 190px; */
+  height: 50px;
+  padding: 5px 5px;
+
+  margin-bottom: 10px;
+}
+
+.button-functional--delete:hover {
+background-color: orange;
+color: white;
+transform: scale(1.03);
+}
+
+.button-functional--start{
     flex: 1 1 auto ;
     color: white;
-    background-color: rgb(67, 24, 221);
+    background-color: lightslategray;
     border: 1px solid white;
     border-radius: 0%;
     font-size: 1rem;
@@ -103,8 +125,8 @@ display: inline-block;
     margin-bottom: 10px;
   }
 
-.button-functional--calc:hover {
-  background-color: rgb(219, 9, 97);
+.button-functional--start:hover {
+  background-color:lightskyblue;
   color: white;
   transform: scale(1.03);
 }
@@ -112,7 +134,7 @@ display: inline-block;
 .button-functional--eqa{
   flex: 1 1 auto ;
   color: white;
-  background-color: rgb(31, 221, 24);
+  background-color: green;
   border: 1px solid white;
   border-radius: 0%;
   font-size: 2rem;
@@ -121,12 +143,11 @@ display: inline-block;
   /* width: 190px; */
   height: 50px;
   padding: 5px 5px;
-
   margin-bottom: 10px;
 }
 
 .button-functional--eqa:hover {
-background-color: rgb(18, 158, 6);
+background-color: lightgreen;
 color: white;
 transform: scale(1.03);
 }
@@ -164,7 +185,7 @@ transform: scale(1.03);
 .button-target{
   color: white;
   text-align: center;
-  background-color: rgb(161, 4, 148);
+  background-color: darkcyan;
   border: 1px solid white;
   border-radius: 0%;
   font-weight: 500;
@@ -172,7 +193,7 @@ transform: scale(1.03);
   letter-spacing: 25px;
   transition: all 0.5s;
   /* width: 250px; */
-  height:100px;
+  height:150px;
   padding: 10px;
   
 }

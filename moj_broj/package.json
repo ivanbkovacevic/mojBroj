@@ -2,7 +2,7 @@
   "name": "moj_broj",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://ivanbkovacevic.github.io/mojBroj",
+  "homepage": "https://ivanbkovacevic.github.io/mojBroj",
   "dependencies": {
     "gh-pages": "^1.2.0",
     "react": "^16.4.2",
@@ -11,7 +11,7 @@
     "react-scripts": "1.1.5"
   },
   "scripts": {
-    "deploy":"npm run build&&gh-pages -d build",
+    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
