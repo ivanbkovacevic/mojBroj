@@ -63,7 +63,7 @@ class BtnNumGroup extends Component {
             let index1 = Math.floor(Math.random() * 10);
             target6 = { id: 5, value: target6[index1], clicked: false, order: 0, alowed: true, type: 'number' }
          
-            let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
+           let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
 
 
             numbersArray = numbersArray.slice();
@@ -158,7 +158,7 @@ class BtnNumGroup extends Component {
 
 
     DeleteButtonsClicked = () => {  // brisanje upisanih dugmadi i vracanje dugmadi u funkciju  // koristi se findIndex sa id da bi se pronaslo dugme
-        let { numbersArray, operandsArray, btnClickedArr, buttonOrder, message, numbersAlowed, operandsAlowed, solution } = this.state;
+        let { numbersArray, operandsArray, btnClickedArr, buttonOrder, message, numbersAlowed, operandsAlowed,klasaSolution, solution } = this.state;
         btnClickedArr = btnClickedArr.slice();
         numbersArray = numbersArray.slice();
         operandsArray = operandsArray.slice();
@@ -196,7 +196,8 @@ class BtnNumGroup extends Component {
             buttonOrder = 0;
             numbersAlowed = true;
             operandsAlowed = true;
-            this.setState({ message, operandsAlowed, numbersAlowed, buttonOrder, solution });
+            klasaSolution='playersInput'
+            this.setState({ message, operandsAlowed, numbersAlowed, buttonOrder, solution,klasaSolution });
         }
     }
 
@@ -211,25 +212,10 @@ class BtnNumGroup extends Component {
         solution = solution.replace(/,/g, " ");
         let solutionLch = solution.slice(-1);
         
-        if (solutionLch === ')') {
-            solution = eval(solution);
-            if (solution === targetNumber) {
-                solution = eval(solution);
-                win++;
-                klasaSolution='correct';
-                message = 'TACNO RESENJE - CESTITAMO!'
-                this.setState({ win, message, solution,klasaSolution });
-            }else {
-                solution = eval(solution);
-                loss++;
-                klasaSolution='wrong';
-                message = 'RESENJE NIJE TACNO :( ';
-                this.setState({ loss, message, solution,klasaSolution });
-            }
-
-        } else if(solution === targetNumber){
+        
             solutionLch = Number(solutionLch);
             solution = eval(solution);  
+            if(solution === targetNumber){
                 win++;
                 message = 'TACNO RESENJE - CESTITAMO!';
                 klasaSolution='correct';
@@ -240,7 +226,10 @@ class BtnNumGroup extends Component {
                 message = 'RESENJE NIJE TACNO :( ';
                 klasaSolution='wrong';
                 this.setState({ loss, message, solution,klasaSolution });
-            }
+            
+      }
+      
+
     }
     ResetAll = () => {
         this.setState({
