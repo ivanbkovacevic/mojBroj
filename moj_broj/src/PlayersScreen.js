@@ -16,7 +16,7 @@ class PlayersScreen extends Component {
 
              if (this.props.message.length >0) {
                  message=(
-                  <Alert bsStyle="danger" onDismiss={this.handleDismiss}>
+                  <Alert bsStyle="danger" className='alert' onDismiss={this.handleDismiss}>
                     <p>
                         {this.props.message}
                     </p>

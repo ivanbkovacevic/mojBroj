@@ -100,6 +100,7 @@ class BtnNumGroup extends Component {
 
     ButtonClicked = (id, i, alowed, type) => {
         let { numbersArray, btnClickedArr, buttonOrder, buttonType, numbersAlowed, operandsAlowed, message } = this.state;  //// dugme novo kao objekat ... ovde se setuje kada se klikne na njega
+        message='';
         if (numbersAlowed === true) {
             numbersArray = numbersArray.slice();
             buttonOrder += 1;  ////////// redovni destructuring 
@@ -126,6 +127,7 @@ class BtnNumGroup extends Component {
 
     ButtonOperandClicked = (id, i, alowed, type) => {
         let { btnClickedArr, buttonOrder, numbersAlowed, operandsAlowed, operandsArray, message } = this.state;
+        message='';
         if (numbersAlowed === false) {
             operandsArray = operandsArray.slice();
             buttonOrder += 1;  ////////// redovni destructuring 
@@ -143,7 +145,7 @@ class BtnNumGroup extends Component {
             this.setState({ operandsArray, btnClickedArr, buttonOrder, operandsAlowed, numbersAlowed, message });
 
         } else {
-            message = 'Ne mogu dva broja za redom';
+            message = 'Ne mogu dva operatora za redom';
             this.setState({ message });
         }
 
