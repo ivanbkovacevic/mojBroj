@@ -163,11 +163,8 @@ class BtnNumGroup extends Component {
         this.setState({ oprSpecArray, btnClickedArr, buttonOrder });
 
 
-        if(btnClickedArr.length >1){   /////////// uslovi vezani za upotrebe zagrada
-           
-        
+        if(btnClickedArr.length >1){   /////////// uslovi vezani za upotrebe zagrada   
             for(let i=1; i<btnClickedArr.length; i++){
-           
                 if(btnClickedArr[i-1].value==='(' && btnClickedArr[i].value===')'){
                     message='Nepravilna upotreba zagrada';
                     this.setState({message});
@@ -191,10 +188,7 @@ class BtnNumGroup extends Component {
             }
            
         }
-          
-
     }
-
 
     DeleteButtonsClicked = () => {  // brisanje upisanih dugmadi i vracanje dugmadi u funkciju  // koristi se findIndex sa id da bi se pronaslo dugme
         let { numbersArray, operandsArray, btnClickedArr, buttonOrder, message, numbersAlowed, operandsAlowed,klasaSolution, solution } = this.state;
@@ -242,7 +236,6 @@ class BtnNumGroup extends Component {
 
     Calculate = () => {
         let { btnClickedArr, win, loss, targetNumber, message,klasaSolution } = this.state;
-
         let solutionString = [];
         let solution = btnClickedArr.map(btn => {
             return solutionString.push(btn.value)
@@ -261,15 +254,15 @@ class BtnNumGroup extends Component {
                 this.setState({ win, message, solution,klasaSolution });
             }  else {
                 solution = eval(solution);
+                solution= solution.toFixed(2);
                 loss++;
                 message = 'RESENJE NIJE TACNO :( ';
                 klasaSolution='wrong';
                 this.setState({ loss, message, solution,klasaSolution });
             
       }
-      
-
     }
+
     ResetAll = () => {
         this.setState({
             targetNumber: 0,
@@ -294,7 +287,6 @@ class BtnNumGroup extends Component {
     render() {
         let { solution, win, loss } = this.state;
         let buttonsNum = null;  // renderovanje dugmadi za brojeve
-
         let buttonsOperand = null;  // renderovanje dugmadi za brojeve
         let buttonsOperandSpecial = null;  // renderovanje dugmadi za brojeve
 
@@ -337,27 +329,27 @@ class BtnNumGroup extends Component {
             <div className='container-fluid'>
                 {/* <div className='state'><per>{JSON.stringify(this.state, null, 2)}</per></div> */}
                 <Row>
-                    <Col lg={0} ></Col>
-                    <Col lg={12} >
+                    <Col lg={4} md={2} ></Col>
+                    <Col lg={4} md={8} >
                         <Score win={win} loss={loss} clock={this.state.clock} />
                     </Col>
-                    <Col lg={0}></Col>
+                    <Col lg={4} md={2}></Col>
                 </Row>
 
                 <Row>
-                    <Col lg={0}></Col>
-                    <Col lg={12}>
+                    <Col lg={4} md={2}></Col>
+                    <Col lg={4} md={8}>
                    
                         <div className='button-target'>
                         {/* <p>TRAŽENI BROJ</p> */}
                         {this.state.targetNumber}</div>
                     </Col>
-                    <Col lg={0}></Col>
+                    <Col lg={4} md={2}></Col>
                 </Row>
 
                 <Row>
-                    <Col lg={0}></Col>
-                    <Col lg={12}>
+                    <Col lg={4} md={2}></Col>
+                    <Col lg={4} md={8}>
                     <div className='container--btnFunc'>
                    
                         <button className='button-functional--start' onClick={this.generateTarget}>START</button>
@@ -369,36 +361,36 @@ class BtnNumGroup extends Component {
                         <svg className="icon" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
                         </div>
                     </Col>
-                    <Col lg={0}></Col>
+                    <Col lg={4} md={2}></Col>
 
                 </Row>
 
                 <Row>
-                    <Col lg={0}></Col>
-                    <Col lg={12}>
+                    <Col lg={4} md={2}></Col>
+                    <Col lg={4} md={8}>
                     <div className='container--btnNum'>{buttonsNum}</div>
                     </Col>
-                    <Col lg={0}></Col>
+                    <Col lg={4} md={2}></Col>
                 </Row>
                 <Row>
-                    <Col lg={0}></Col>
-                    <Col lg={12}>
+                    <Col lg={4} md={2}></Col>
+                    <Col lg={4} md={8}>
                     <div className='container--btnOpr'> {buttonsOperand} {buttonsOperandSpecial}</div>
                        
                     </Col>
-                    <Col lg={0}></Col>
+                    <Col lg={4} md={2}></Col>
                 </Row>
 
                 <Row>
-                    <Col lg={0}></Col>
-                    <Col lg={12}>
+                    <Col lg={4} md={2}></Col>
+                    <Col lg={4} md={8}>
                         <PlayersScreen btnClickedArr={this.state.btnClickedArr}
                             solution={solution}
                             message={this.state.message}
                             klasaSolution={this.state.klasaSolution}
                         />
                     </Col>
-                    <Col lg={0}></Col>
+                    <Col lg={4} md={2}></Col>
                 </Row>
 
             </div>

@@ -1,43 +1,56 @@
 import React, { Component } from 'react';
 import './MojBroj.css';
-import Funkcija from './Funkcija';
-
+import { Form,FormGroup, Col, ControlLabel,FormControl,Button,Checkbox} from 'react-bootstrap';
 
 class Score extends Component {
     state = {
-        clock: ''
+        clock: '',
+        player:[ {name:'ivan',password:'ivantest',loss:0,win:0} ]
     }
 
-    // componentDidMount() {
-    //     this.interval = setInterval(() => {
-    //       let {clock}=  this.state;
-    //       clock.s++;
-    //       if(clock.s===60){
-    //        clock.m++;
-    //        clock.s=0;
-    //       }
-
-    //         this.setState({clock});
-    //       console.log(this.state.clock)
-    //     }, 1000);
-    //   }
-
-    //   componentWillUnmount() {
-    //     clearInterval(this.interval);
-    //   }
-
-
+  
 
     render() {
-
-
         return (
             <div>
                 {/* //  <Funkcija /> */}
                 <div className='uputstvo'>
                     <h3>UPUTSTVO:</h3>
-                    <p>Pronađite traženi broj postavkom datih brojeva u matematičku jednačinu. Možete iskoristiti svaki od ponuđenih brojeva samo jedanput. 
+                    <p>Pronađite traženi broj postavkom datih brojeva u matematičku jednačinu. Možete iskoristiti svaki od ponuđenih brojeva samo jedanput.
                         Ne smete postaviti dva broja zaredom bez znaka operacije između njih. Operacija mora biti matematički ispravna.</p>
+                </div>
+                <div>
+                    <Form horizontal>
+                    <FormGroup controlId="formHorizontalName">
+                        <Col componentClass={ControlLabel} sm={2}>
+                            Name
+                       </Col>
+                        <Col sm={10}>
+                            <FormControl type="text" placeholder="Name" />
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup controlId="formHorizontalPassword">
+                        <Col componentClass={ControlLabel} sm={2}>
+                            Password
+                        </Col>
+                        <Col sm={10}>
+                            <FormControl type="password" placeholder="Password" />
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Col smOffset={2} sm={10}>
+                            <Checkbox>Remember me</Checkbox>
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Col smOffset={2} sm={10}>
+                            <Button type="submit">Sign in</Button>
+                        </Col>
+                    </FormGroup>
+                </Form>
                 </div>
                 <div className='semafor'>
                     <span>POBEDE: <button className='button-win'>{this.props.win} </button> </span>
