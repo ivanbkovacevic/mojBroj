@@ -371,6 +371,10 @@ transform: scale(1.03);
       width: 50%;
   }
 
+  .message{
+    font-size: 1.5rem;
+  }
+
   /* .spinOuther{
       position: relative;
     background-color: blue;

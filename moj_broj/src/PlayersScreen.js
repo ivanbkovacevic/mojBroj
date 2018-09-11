@@ -15,7 +15,7 @@ class PlayersScreen extends Component {
              if (this.props.message.length >0) {
                  message=(
                   <Alert bsStyle="info" className='alert' onDismiss={this.handleDismiss}>
-                    <p>
+                    <p className='message'>
                         {this.props.message}
                     </p>
                 </Alert> )
@@ -24,7 +24,7 @@ class PlayersScreen extends Component {
         return (
             <div className='container--plyInp'>
             <div className={klasa}> {playersInput} = <span>{this.props.solution} </span>  
-            {message}
+               {message}
             </div>
           </div>
         );

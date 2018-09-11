@@ -28,9 +28,11 @@ class BtnNumGroup extends Component {
         loss: 0,
         buttonType: null,
         numbersAlowed: true,
-        operandsAlowed: true,
+        operandsAlowed: false,
         isDisabled: false,
-        operandDisabled: false,
+       // operandDisabled: false,
+        zagOtv:0,
+        zagZtv:0,
         message: '',
         solution: '',
         klasaSolution:'playersInput'
@@ -116,6 +118,8 @@ class BtnNumGroup extends Component {
     ButtonOperandClicked = (id, i, alowed, type) => {
         let { btnClickedArr, buttonOrder, numbersAlowed, operandsAlowed, operandsArray, message } = this.state;
         message='';
+      
+
         if (operandsAlowed === true) {
             operandsArray = operandsArray.slice();
             buttonOrder += 1;  ////////// redovni destructuring 
@@ -127,13 +131,16 @@ class BtnNumGroup extends Component {
             let btnOprClicked = { ...btnOpr }; // pravljenje kopije objekta
 
             btnClickedArr.push(btnOprClicked);// ubacivanje u btnClick niz...niz koji ispisuje inpute
+            if(btnClickedArr[0].type==='operand'){
+                message = 'Ne moze operacija da zapocne operatorom';
+                this.setState({ message });
+            }
             btnClickedArr = btnClickedArr.sort((obj1, obj2) => { return obj1.order - obj2.order });//sortiranje btnClickedArr niza
             numbersAlowed = true;
             operandsAlowed = false;
             this.setState({ operandsArray, btnClickedArr, buttonOrder, operandsAlowed, numbersAlowed, message });
-
         } else {
-            message = 'Ne mogu dva operatora za redom';
+            message = 'Ne mogu dva operatora za redom ili operator na početku';
             this.setState({ message });
         }
 
@@ -141,7 +148,7 @@ class BtnNumGroup extends Component {
     }
 
     ButtonOperandSpecialClicked = (id, k, alowed, type) => {
-        let { oprSpecArray, btnClickedArr, buttonOrder } = this.state;
+        let { oprSpecArray, btnClickedArr, buttonOrder,message,zagOtv,zagZtv } = this.state;
         oprSpecArray = oprSpecArray.slice();
         buttonOrder += 1;  ////////// redovni destructuring 
         ///////////////////////////////////////////////////////////////////////////////
@@ -154,6 +161,38 @@ class BtnNumGroup extends Component {
         btnClickedArr.push(btnOprSpecClicked);// ubacivanje u btnClick niz...niz koji ispisuje inpute
         btnClickedArr = btnClickedArr.sort((obj1, obj2) => { return obj1.order - obj2.order });//sortiranje btnClickedArr niza
         this.setState({ oprSpecArray, btnClickedArr, buttonOrder });
+
+
+        if(btnClickedArr.length >1){   /////////// uslovi vezani za upotrebe zagrada
+           
+        
+            for(let i=1; i<btnClickedArr.length; i++){
+           
+                if(btnClickedArr[i-1].value==='(' && btnClickedArr[i].value===')'){
+                    message='Nepravilna upotreba zagrada';
+                    this.setState({message});
+                }else if(btnClickedArr[i-1].value===')' && btnClickedArr[i].value==='('){
+                    message='Nepravilna upotreba zagrada';
+                    this.setState({message});
+                }else if(btnClickedArr[i-1].value===')' && btnClickedArr[i].type==='number'){
+                    message='Izostao vam je operator izmedju zagrade i broja';
+                    this.setState({message});
+                }else if(btnClickedArr[i-1].type==='number' && btnClickedArr[i].value==='('){
+                    message='Izostao vam je operator izmedju broja i zagrade';
+                    this.setState({message});
+                    ///////////////////////
+                }else if(btnClickedArr[i-1].value==='(' && btnClickedArr[i].type==='operand'){
+                    message='Izostao vam je broj izmedju zagrade i operatora';
+                    this.setState({message});
+                }else if(btnClickedArr[i-1].type==='operand' && btnClickedArr[i].value===')'){
+                    message='Izostao vam je broj izmedju operatora i zagrade';
+                    this.setState({message});
+                } 
+            }
+           
+        }
+          
+
     }
 
 
