@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './MojBroj.css';
+import './css/mojbroj.css';
 import { Form,FormGroup, Col, ControlLabel,FormControl,Button,Checkbox} from 'react-bootstrap';
+import Funkcija from './Funkcija';
 
 class Score extends Component {
     state = {
@@ -13,7 +14,7 @@ class Score extends Component {
     render() {
         return (
             <div>
-                {/* //  <Funkcija /> */}
+                 <Funkcija />
                 <div className='uputstvo'>
                     <h3>UPUTSTVO:</h3>
                     <p>Pronađite traženi broj postavkom datih brojeva u matematičku jednačinu. Možete iskoristiti svaki od ponuđenih brojeva samo jedanput.

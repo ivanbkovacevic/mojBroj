@@ -1,9 +1,13 @@
-/* /* 
-    $color-primary:  rgb(40, 158, 40);
-    $color-primary-light:  rgb(55, 218, 55);
-    $color-primary-dark:  rgb(28, 121, 28);
 
-  
+    /// npm install node-sass --save-dev
+    //  "scripts": {
+  //    "compile:sass":"node-sass ./src/sass/main.scss  ./src/css/mojbroj.css -w",  
+
+
+    @import "variables";
+    @import "score";
+    
+
   * {
       margin: 0;
       padding: 0;
@@ -37,60 +41,8 @@
   .value--hide {
     display: none;
   }
-  
-  #time{
-      font-size: 50px;
-      font-weight: 500;
-      background-color:$color-primary;
-      width: 250px;
-      padding: 7px 40px;
-  }
-  
-  .button-functional--reset{
-      flex: 1 1 auto ;
-      color: white;
-      background-color: $color-primary;
-      border: 1px solid white;
-      border-radius: 0%;
-      font-size: 1.5rem;
-      font-weight: 500;
-      letter-spacing: 5px;
-      transition: all 0.5s;
-      /* width: 190px; */
-      height: 50px;
-      padding: 5px 5px;
     
-      margin-bottom: 10px;
-    }
-  
-  .button-functional--reset:hover {
-    background-color:$color-primary;
-    color: white;
-    transform: scale(1.03);
-  }
-  
-  .button-functional--delete{
-    flex: 1 1 auto ;
-    color: white;
-    background-color:  $color-primary;
-    border: 1px solid white;
-    border-radius: 0%;
-    font-size: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 5px;
-    transition: all 0.5s;
-    /* width: 190px; */
-    height: 50px;
-    padding: 5px 5px;
-  
-    margin-bottom: 10px;
-  }
-  
-  .button-functional--delete:hover {
-  background-color: $color-primary;
-  color: white;
-  transform: scale(1.03);
-  }
+
   
   .button-functional--start{
       flex: 1 1 auto ;
@@ -107,6 +59,7 @@
       padding: 5px 5px;
   
       margin-bottom: 10px;
+      margin-top: 2px;
     }
   
   .button-functional--start:hover {
@@ -115,57 +68,37 @@
     transform: scale(1.03);
   }
   
-  .button-functional--eqa{
-    flex: 1 1 auto ;
-    color: white;
-    background-color:$color-primary;
-    border: 1px solid white;
-    border-radius: 0%;
-    font-size: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 5px;
-    transition: all 0.5s;
-    /* width: 190px; */
-    height: 50px;
-    padding: 5px 5px;
-    margin-bottom: 10px;
-  }
+ 
   
-  .button-functional--eqa:hover {
-  background-color: $color-primary;
-  color: white;
-  transform: scale(1.03);
-  }
-  
-  .button-win{
-    color: white;
-    background-color:$color-primary;
-    border: 1px solid white;
-    border-radius: 10%;
-    font-size: 1.5rem;
-    font-weight: 500;
-    transition: all 0.5s;
-    width: 33px;
-    height: 35px;
-    padding: 5px 5px;
-    margin-top: 5px;
+  // .button-win{
+  //   color: white;
+  //   background-color: $color-primary;
+  //   border: 1px solid white;
+  //   border-radius: 10%;
+  //   font-size: 1.5rem;
+  //   font-weight: 500;
+  //   transition: all 0.5s;
+  //   width: 33px;
+  //   height: 35px;
+  //   padding: 5px 5px;
+  //   margin-top: 5px;
    
-  }
+  // }
   
-  .button-loss{
-    color: white;
-    background-color:$color-primary;
-    border: 1px solid white;
-    border-radius: 10%;
-    font-size: 1.5rem;
-    font-weight: 500;
-    transition: all 0.5s;
-    width: 33px;
-    height: 35px;
-    padding: 5px 5px;
-    margin-top: 5px;
+  // .button-loss{
+  //   color: white;
+  //   background-color:$color-primary;
+  //   border: 1px solid white;
+  //   border-radius: 10%;
+  //   font-size: 1.5rem;
+  //   font-weight: 500;
+  //   transition: all 0.5s;
+  //   width: 33px;
+  //   height: 35px;
+  //   padding: 5px 5px;
+  //   margin-top: 5px;
    
-  }
+  // }
   
   .button-target{
     color: white;
@@ -177,7 +110,6 @@
     font-size: 4rem;
     letter-spacing: 5px;
     transition: all 0.5s;
-    /* width: 250px; */
     height:70px;
     padding: 5px;
     
@@ -193,7 +125,6 @@
     font-size: 3rem;
     font-weight: 500;
     transition: all 0.5s;
-    /* width: 160px; */
     height: 50px;
     padding: 5px 5px;
     margin:1px;
@@ -213,7 +144,6 @@
         font-size: 3rem;
         font-weight: 500;
         transition: all 0.5s;
-        /* width: 160px; */
         height: 50px;
         padding: 5px;
         margin-top: 10px;
@@ -234,7 +164,6 @@
         font-size: 2rem;
         font-weight: 500;
         transition: all 0.5s;
-        /* width: 160px; */
         height: 50px;
         padding: 5px 5px;
         margin:1px;
@@ -247,12 +176,6 @@
         color: white;
         transform: scale(1.1);
     }
-  
-    /* .button-operand:active {
-        background-color: rgba(5, 100, 5, 0.493);
-        color: white;
-        transform: scale(1.1);
-    } */
   
     .container--btnNum {
         display: flex;
@@ -314,23 +237,23 @@
     }
   
   
-    .uputstvo{
-        background-color: $color-primary;
-        color:white;
-        width: 100%;
-        padding: 10px;
-        font-size: 1.5rem;
-        margin-top: 10px;
-    }
+    // .uputstvo{
+    //     background-color: $color-primary;
+    //     color:white;
+    //     width: 100%;
+    //     padding: 10px;
+    //     font-size: 1.5rem;
+    //     margin-top: 10px;
+    // }
   
-    .semafor{
-      background-color: $color-primary;
-      color:white;
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-      font-size: 1.5rem;
-    }
+    // .semafor{
+    //   background-color: $color-primary;
+    //   color:white;
+    //   width: 100%;
+    //   text-align: center;
+    //   padding: 10px;
+    //   font-size: 1.5rem;
+    // }
   
     .alert{
         margin-top: 30px;
@@ -342,42 +265,7 @@
       font-size: 1rem;
     }
   
-    /* .spinOuther{
-        position: relative;
-      background-color: blue;
-      width: 50px;
-      height: 50px;
-      margin-left: 20px;
-      font-size: 45px;
-      text-align: center;
-      overflow: hidden;
-    }
   
-    .spin {
-        position: absolute;
-      background-color: green;
-     width: 50px;
-     height: 30px;
-     font-size: 35px;
-     animation-name: spin;
-     animation-duration: 0.1s;
-     animation-fill-mode: forwards;
-     animation-iteration-count: 14;
-    }
-  
-    .spinR {
-  position: absolute;
-  color: aliceblue;
-  background-color: transparent;
-   width: 50px;
-   height: 30px;
-   font-size: 35px;
-   animation-name: growing;
-   animation-duration: 0.8s;
-   animation-fill-mode: forwards;
-   animation-timing-function: ease-in-out;
-   
-    } */
   
     .icon{
       flex: 0 1 auto ;
@@ -419,4 +307,4 @@
       85%{transform:scale(1.2);}
       100%{transform:scale(1);opacity: 1;}
      
-  }  
+  }

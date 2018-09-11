@@ -3,7 +3,7 @@ import ButtonsMain from './ButtonsMain';
 import ButtonsOperand from './ButtonsOperand';
 import ButtonsOperandSpecial from './ButtonsOperandSpecial';
 
-import './MojBroj.css';
+import './css/mojbroj.css';
 import Score from './Score';
 import PlayersScreen from './PlayersScreen';
 
