@@ -234,7 +234,7 @@ class BtnNumGroup extends Component {
             solution = ''
             buttonOrder = 0;
             numbersAlowed = true;
-            operandsAlowed = true;
+            operandsAlowed = false;
             klasaSolution='playersInput'
             this.setState({ message, operandsAlowed, numbersAlowed, buttonOrder, solution,klasaSolution });
         }
@@ -282,7 +282,7 @@ class BtnNumGroup extends Component {
             gameStarted: false,
             buttonType: null,
             numbersAlowed: true,
-            operandsAlowed: true,
+            operandsAlowed: false,
             isDisabled: false,
             operandDisabled: false,
             message: '',
@@ -349,7 +349,7 @@ class BtnNumGroup extends Component {
                     <Col lg={12}>
                    
                         <div className='button-target'>
-                        <h4>TRAŽENI BROJ</h4>
+                        {/* <p>TRAŽENI BROJ</p> */}
                         {this.state.targetNumber}</div>
                     </Col>
                     <Col lg={0}></Col>
@@ -359,10 +359,14 @@ class BtnNumGroup extends Component {
                     <Col lg={0}></Col>
                     <Col lg={12}>
                     <div className='container--btnFunc'>
+                   
                         <button className='button-functional--start' onClick={this.generateTarget}>START</button>
-                        <button className='button-functional--delete' onClick={this.DeleteButtonsClicked}>OBRIŠI POSLEDNJE</button>
+                        {/* <button className='button-functional--delete' onClick={this.DeleteButtonsClicked}>OBRIŠI POSLEDNJE</button>
                         <button className='button-functional--eqa' onClick={this.Calculate}> = </button>
-                        <button className='button-functional--reset' onClick={this.ResetAll} resetovati={this.ResetAll}>RESETUJ SVE</button>
+                        <button className='button-functional--reset' onClick={this.ResetAll} resetovati={this.ResetAll}>RESETUJ</button> */}
+                        <svg className="icon" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-cross"></use></svg>
+                        <svg className="icon" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
+                        <svg className="icon" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
                         </div>
                     </Col>
                     <Col lg={0}></Col>
