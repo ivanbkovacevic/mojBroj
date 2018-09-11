@@ -1,5 +1,5 @@
 :root {
-  --color-primary: gray;
+  --color-primary:  rgb(40, 158, 40);
 }
 
 * {
@@ -39,7 +39,7 @@ display: inline-block;
 #time{
     font-size: 50px;
     font-weight: 500;
-    background-color: darkorange;
+    background-color:var(--color-primary);
     width: 250px;
     padding: 7px 40px;
 }
@@ -47,7 +47,7 @@ display: inline-block;
 .button-functional--reset{
     flex: 1 1 auto ;
     color: white;
-    background-color: darkred;
+    background-color: var(--color-primary);
     border: 1px solid white;
     border-radius: 0%;
     font-size: 1.5rem;
@@ -62,7 +62,7 @@ display: inline-block;
   }
 
 .button-functional--reset:hover {
-  background-color: red;
+  background-color:var(--color-primary);
   color: white;
   transform: scale(1.03);
 }
@@ -70,7 +70,7 @@ display: inline-block;
 .button-functional--delete{
   flex: 1 1 auto ;
   color: white;
-  background-color: darkorange;
+  background-color:  var(--color-primary);
   border: 1px solid white;
   border-radius: 0%;
   font-size: 1.5rem;
@@ -85,7 +85,7 @@ display: inline-block;
 }
 
 .button-functional--delete:hover {
-background-color: orange;
+background-color: var(--color-primary);
 color: white;
 transform: scale(1.03);
 }
@@ -93,7 +93,7 @@ transform: scale(1.03);
 .button-functional--start{
     flex: 1 1 auto ;
     color: white;
-    background-color: lightslategray;
+    background-color: var(--color-primary);
     border: 1px solid white;
     border-radius: 0%;
     font-size: 1.5rem;
@@ -108,7 +108,7 @@ transform: scale(1.03);
   }
 
 .button-functional--start:hover {
-  background-color:lightskyblue;
+  background-color: var(--color-primary);
   color: white;
   transform: scale(1.03);
 }
@@ -116,7 +116,7 @@ transform: scale(1.03);
 .button-functional--eqa{
   flex: 1 1 auto ;
   color: white;
-  background-color: green;
+  background-color:var(--color-primary);
   border: 1px solid white;
   border-radius: 0%;
   font-size: 1.5rem;
@@ -130,14 +130,14 @@ transform: scale(1.03);
 }
 
 .button-functional--eqa:hover {
-background-color: lightgreen;
+background-color: var(--color-primary);
 color: white;
 transform: scale(1.03);
 }
 
 .button-win{
   color: white;
-  background-color: rgba(87, 45, 236, 0.904);
+  background-color:var(--color-primary);
   border: 1px solid white;
   border-radius: 10%;
   font-size: 1.5rem;
@@ -152,7 +152,7 @@ transform: scale(1.03);
 
 .button-loss{
   color: white;
-  background-color: rgb(160, 7, 127);
+  background-color:var(--color-primary);
   border: 1px solid white;
   border-radius: 10%;
   font-size: 1.5rem;
@@ -168,7 +168,7 @@ transform: scale(1.03);
 .button-target{
   color: white;
   text-align: center;
-  background-color: darkcyan;
+  background-color: var(--color-primary);
   border: 1px solid white;
   border-radius: 0%;
   font-weight: 500;
@@ -185,7 +185,7 @@ transform: scale(1.03);
     flex: 1 1 auto ;
   opacity: 0.4;
   color: white;
-  background-color: rgb(228, 38, 38);
+  background-color:  rgb(5, 170, 5);
   border: 1px solid white;
   border-radius: 0%;
   font-size: 3rem;
@@ -205,7 +205,7 @@ transform: scale(1.03);
     flex: 1 1 auto ;
       opacity: 0.4;
       color: white;
-      background-color: darkslateblue;
+      background-color:var(--color-primary);
       border: 1px solid white;
       border-radius: 0%;
       font-size: 3rem;
@@ -226,7 +226,7 @@ transform: scale(1.03);
   .button-operand{
     flex: 1 1 auto ;
       color: white;
-      background-color: darkorange;
+      background-color: var(--color-primary);
       border: 1px solid white;
       border-radius: 0%;
       font-size: 2rem;
@@ -241,7 +241,7 @@ transform: scale(1.03);
   }
 
   .button-operand:hover {
-      background-color: rgb(190, 106, 3);
+      background-color: rgb(5, 161, 5);
       color: white;
       transform: scale(1.1);
   }
@@ -288,7 +288,7 @@ transform: scale(1.03);
   .correct{
     flex: 1 1 auto ;
     color:white;
-      background-color:  darkcyan;
+      background-color: var(--color-primary);
       box-shadow: 2px 2px 5px;
       border: 1px solid white;
       font-weight: 500;
@@ -313,7 +313,8 @@ transform: scale(1.03);
 
 
   .uputstvo{
-      background-color: bisque;
+      background-color: var(--color-primary);
+      color:white;
       width: 100%;
       padding: 10px;
       font-size: 1.5rem;
@@ -321,7 +322,8 @@ transform: scale(1.03);
   }
 
   .semafor{
-    background-color: rgb(240, 238, 236);
+    background-color: var(--color-primary);
+    color:white;
     width: 100%;
     text-align: center;
     padding: 10px;
@@ -330,7 +332,6 @@ transform: scale(1.03);
 
   .alert{
       margin-top: 30px;
-    
       font-size: 1rem;
       width: 100%;
   }
@@ -379,7 +380,7 @@ background-color: transparent;
   .icon{
     flex: 0 1 auto ;
     fill:white;
-    background-color: crimson;
+    background-color: var(--color-primary);
     border: 1px solid white;
     height: 50px;
     width: 50px;

@@ -254,7 +254,7 @@ class BtnNumGroup extends Component {
                 this.setState({ win, message, solution,klasaSolution });
             }  else {
                 solution = eval(solution);
-                solution= solution.toFixed(2);
+                solution= solution.toFixed(0);
                 loss++;
                 message = 'RESENJE NIJE TACNO :( ';
                 klasaSolution='wrong';
