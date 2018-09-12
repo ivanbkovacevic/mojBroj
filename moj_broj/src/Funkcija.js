@@ -89,9 +89,9 @@ class Funkcija extends Component {
     render() {
         return (
             <div>
-                {this.state.rez}
+                {/* {this.state.rez}
                 <button className='button-functional' onClick={this.poredjenje}>test</button>
-                <button className='button-functional' onClick={this.poredjenje2}>test2</button>
+                <button className='button-functional' onClick={this.poredjenje2}>test2</button> */}
             </div>
         );
     }
