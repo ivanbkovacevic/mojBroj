@@ -12,7 +12,8 @@
   width: 100%;
   text-align: center;
   padding: 10px;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  margin-bottom: 2px; }
 
 .button-win {
   color: white;
@@ -39,6 +40,116 @@
   height: 35px;
   padding: 5px 5px;
   margin-top: 5px; }
+
+.button-functional--start {
+  flex: 1 1 auto;
+  color: white;
+  background-color: #208317;
+  border: 1px solid white;
+  border-radius: 0%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 5px;
+  transition: all 0.5s;
+  /* width: 190px; */
+  height: 50px;
+  padding: 5px 5px;
+  margin-bottom: 10px;
+  margin-top: 2px; }
+  .button-functional--start:hover {
+    background-color: #a30e0e;
+    color: white; }
+
+.button-target {
+  color: white;
+  text-align: center;
+  background-color: #208317;
+  border-radius: 0%;
+  font-weight: 500;
+  font-size: 4rem;
+  letter-spacing: 5px;
+  transition: all 0.5s;
+  height: 70px;
+  padding: 5px;
+  margin: 1px; }
+
+.button-disabled {
+  flex: 1 1 auto;
+  opacity: 0.4;
+  color: white;
+  background-color: #05aa05;
+  border-radius: 0%;
+  font-size: 3rem;
+  font-weight: 500;
+  transition: all 0.5s;
+  height: 50px;
+  width: 100px;
+  padding: 5px;
+  margin: 1px;
+  margin-top: 10px;
+  animation-name: buttonDisapear;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards; }
+
+.button-enabled {
+  flex: 1 1 auto;
+  opacity: 0.4;
+  color: white;
+  background-color: #208317;
+  border-radius: 0%;
+  font-size: 3rem;
+  font-weight: 500;
+  transition: all 0.5s;
+  height: 50px;
+  width: 100px;
+  padding: 5px;
+  margin-top: 10px;
+  margin: 1px;
+  cursor: pointer;
+  animation-name: growing;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out; }
+  .button-enabled:hover {
+    background-color: #a30e0e;
+    color: white;
+    transform: scale(1.1); }
+
+.button-operand {
+  flex: 1 1 auto;
+  color: white;
+  background-color: #208317;
+  border-radius: 0%;
+  font-size: 2rem;
+  font-weight: 500;
+  transition: all 0.5s;
+  height: 50px;
+  width: 100px;
+  padding: 5px;
+  margin: 1px;
+  cursor: pointer;
+  animation-name: growing;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out; }
+  .button-operand:hover {
+    background-color: #a30e0e;
+    color: white; }
+  .button-operand:active {
+    background-color: #a30e0e;
+    color: white; }
+
+.icon {
+  flex: 0 1 auto;
+  fill: white;
+  background-color: #208317;
+  border: 1px solid white;
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  margin: 2px; }
+  .icon:hover {
+    background-color: #a30e0e; }
 
 * {
   margin: 0;
@@ -67,103 +178,19 @@ body {
 .value--hide {
   display: none; }
 
-.button-functional--start {
-  flex: 1 1 auto;
-  color: white;
-  background-color: #208317;
-  border: 1px solid white;
-  border-radius: 0%;
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 5px;
-  transition: all 0.5s;
-  /* width: 190px; */
-  height: 50px;
-  padding: 5px 5px;
-  margin-bottom: 10px;
-  margin-top: 2px; }
-
-.button-functional--start:hover {
-  background-color: #208317;
-  color: white;
-  transform: scale(1.03); }
-
-.button-target {
-  color: white;
-  text-align: center;
-  background-color: #208317;
-  border: 1px solid white;
-  border-radius: 0%;
-  font-weight: 500;
-  font-size: 4rem;
-  letter-spacing: 5px;
-  transition: all 0.5s;
-  height: 70px;
-  padding: 5px; }
-
-.button-disabled {
-  flex: 1 1 auto;
-  opacity: 0.4;
-  color: white;
-  background-color: #05aa05;
-  border: 1px solid white;
-  border-radius: 0%;
-  font-size: 3rem;
-  font-weight: 500;
-  transition: all 0.5s;
-  height: 50px;
-  padding: 5px 5px;
-  margin: 1px;
-  margin-top: 10px;
-  animation-name: buttonDisapear;
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards; }
-
-.button-enabled {
-  flex: 1 1 auto;
-  opacity: 0.4;
-  color: white;
-  background-color: #208317;
-  border: 1px solid white;
-  border-radius: 0%;
-  font-size: 3rem;
-  font-weight: 500;
-  transition: all 0.5s;
-  height: 50px;
-  padding: 5px;
-  margin-top: 10px;
-  margin: 1px;
-  cursor: pointer;
-  animation-name: growing;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out; }
-
-.button-operand {
-  flex: 1 1 auto;
-  color: white;
-  background-color: #208317;
-  border: 1px solid white;
-  border-radius: 0%;
-  font-size: 2rem;
-  font-weight: 500;
-  transition: all 0.5s;
-  height: 50px;
-  padding: 5px 5px;
-  margin: 1px; }
-
-.button-operand:hover {
-  background-color: #05a105;
-  color: white;
-  transform: scale(1.1); }
-
 .container--btnNum {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50px; }
 
 .container--btnOpr {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50px; }
 
 .container--btnFunc {
   display: flex;
@@ -172,7 +199,8 @@ body {
 
 .container--plyInp {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  justify-content: center; }
 
 .playersInput {
   flex: 1 1 auto;
@@ -200,32 +228,23 @@ body {
 .wrong {
   flex: 1 1 auto;
   color: white;
-  background-color: red;
+  background-color: #a30e0e;
   box-shadow: 2px 2px 5px;
   border: 1px solid white;
   font-weight: 500;
   font-size: 1.5rem;
-  height: 120px;
+  height: 150px;
   padding: 5px 15px;
   margin-bottom: 50px; }
 
 .alert {
   margin-top: 30px;
   font-size: 1rem;
+  border-radius: 0%;
   width: 100%; }
 
 .message {
-  font-size: 1rem; }
-
-.icon {
-  flex: 0 1 auto;
-  fill: white;
-  background-color: #208317;
-  border: 1px solid white;
-  height: 50px;
-  width: 50px;
-  padding: 5px;
-  margin: 2px; }
+  font-size: 1.3rem; }
 
 @keyframes buttonDisapear {
   0% {
@@ -233,7 +252,7 @@ body {
   100% {
     opacity: 1;
     transform: translateY(-20px);
-    background-color: rgba(245, 8, 8, 0.904);
+    background-color: #a30e0e;
     display: none; } }
 
 @keyframes buttonApear {

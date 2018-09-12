@@ -7,7 +7,7 @@ import './css/mojbroj.css';
 import Score from './Score';
 import PlayersScreen from './PlayersScreen';
 
-import { Col, Row, Grid } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 
 class BtnNumGroup extends Component {
@@ -39,7 +39,7 @@ class BtnNumGroup extends Component {
     }
 
     generateTarget = () => {  // pravi target brojeve i dugmad kao objekti
-        let { numbersArray, numSpecArr, gameStarted, operandsArray, oprSpecArray, message, clock } = this.state;
+        let { numbersArray, numSpecArr, gameStarted, operandsArray, oprSpecArray, message } = this.state;
 
         if (gameStarted === false) {
             let min = 1;
@@ -89,7 +89,7 @@ class BtnNumGroup extends Component {
 
 
     ButtonClicked = (id, i, alowed, type) => {
-        let { numbersArray, btnClickedArr, buttonOrder, buttonType, numbersAlowed, operandsAlowed, message } = this.state;  //// dugme novo kao objekat ... ovde se setuje kada se klikne na njega
+        let { numbersArray, btnClickedArr, buttonOrder, numbersAlowed, operandsAlowed, message } = this.state;  //// dugme novo kao objekat ... ovde se setuje kada se klikne na njega
         message='';
         if (numbersAlowed === true) {
             numbersArray = numbersArray.slice();
@@ -148,7 +148,7 @@ class BtnNumGroup extends Component {
     }
 
     ButtonOperandSpecialClicked = (id, k, alowed, type) => {
-        let { oprSpecArray, btnClickedArr, buttonOrder,message,zagOtv,zagZtv } = this.state;
+        let { oprSpecArray, btnClickedArr, buttonOrder,message } = this.state;
         oprSpecArray = oprSpecArray.slice();
         buttonOrder += 1;  ////////// redovni destructuring 
         ///////////////////////////////////////////////////////////////////////////////
@@ -223,7 +223,7 @@ class BtnNumGroup extends Component {
             }
         }
 
-        if (btnClickedArr.length == 0) {
+        if (btnClickedArr.length === 0) {
             message = "";
             solution = ''
             buttonOrder = 0;
@@ -356,7 +356,7 @@ class BtnNumGroup extends Component {
                         {/* <button className='button-functional--delete' onClick={this.DeleteButtonsClicked}>OBRIŠI POSLEDNJE</button>
                         <button className='button-functional--eqa' onClick={this.Calculate}> = </button>
                         <button className='button-functional--reset' onClick={this.ResetAll} resetovati={this.ResetAll}>RESETUJ</button> */}
-                        <svg className="icon" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-cross"></use></svg>
+                        <svg className="icon" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg>
                         <svg className="icon" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
                         <svg className="icon" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
                         </div>
