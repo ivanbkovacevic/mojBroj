@@ -1,5 +1,5 @@
 .uputstvo {
-  background-color: #208317;
+  background-color: #5D1049;
   color: white;
   width: 100%;
   padding: 10px;
@@ -7,7 +7,7 @@
   margin-top: 10px; }
 
 .semafor {
-  background-color: #208317;
+  background-color: #5D1049;
   color: white;
   width: 100%;
   text-align: center;
@@ -17,7 +17,7 @@
 
 .button-win {
   color: white;
-  background-color: #208317;
+  background-color: #5D1049;
   border: 1px solid white;
   border-radius: 10%;
   font-size: 1.5rem;
@@ -30,7 +30,7 @@
 
 .button-loss {
   color: white;
-  background-color: #208317;
+  background-color: #5D1049;
   border: 1px solid white;
   border-radius: 10%;
   font-size: 1.5rem;
@@ -43,7 +43,7 @@
 
 .button-missed {
   color: white;
-  background-color: #208317;
+  background-color: #5D1049;
   border: 1px solid white;
   border-radius: 10%;
   font-size: 1rem;
@@ -57,7 +57,7 @@
 .button-functional--start {
   flex: 1 1 auto;
   color: white;
-  background-color: #208317;
+  background-color: #5D1049;
   border: 1px solid white;
   border-radius: 0%;
   font-size: 1.5rem;
@@ -70,13 +70,13 @@
   margin-bottom: 10px;
   margin-top: 2px; }
   .button-functional--start:hover {
-    background-color: #a30e0e;
+    background-color: #720D5D;
     color: white; }
 
 .button-target {
   color: white;
   text-align: center;
-  background-color: #208317;
+  background-color: #5D1049;
   border-radius: 0%;
   font-weight: 500;
   font-size: 4rem;
@@ -90,7 +90,7 @@
   flex: 1 1 auto;
   opacity: 0.4;
   color: white;
-  background-color: #05aa05;
+  background-color: #720D5D;
   border-radius: 0%;
   font-size: 3rem;
   font-weight: 500;
@@ -108,7 +108,7 @@
   flex: 1 1 auto;
   opacity: 0.4;
   color: white;
-  background-color: #208317;
+  background-color: #5D1049;
   border-radius: 0%;
   font-size: 3rem;
   font-weight: 500;
@@ -124,14 +124,14 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out; }
   .button-enabled:hover {
-    background-color: #a30e0e;
+    background-color: #720D5D;
     color: white;
     transform: scale(1.1); }
 
 .button-operand {
   flex: 1 1 auto;
   color: white;
-  background-color: #208317;
+  background-color: #5D1049;
   border-radius: 0%;
   font-size: 2rem;
   font-weight: 500;
@@ -146,23 +146,23 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out; }
   .button-operand:hover {
-    background-color: #a30e0e;
+    background-color: #720D5D;
     color: white; }
   .button-operand:active {
-    background-color: #a30e0e;
+    background-color: #720D5D;
     color: white; }
 
 .icon {
   flex: 0 1 auto;
   fill: white;
-  background-color: #208317;
+  background-color: #5D1049;
   border: 1px solid white;
   height: 50px;
   width: 50px;
   padding: 5px;
   margin: 2px; }
   .icon:hover {
-    background-color: #a30e0e; }
+    background-color: #720D5D; }
 
 * {
   margin: 0;
@@ -180,7 +180,8 @@ html {
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  line-height: 1.6; }
+  line-height: 1.6;
+  background-color: #f2f2f2; }
 
 /* 
   ////////////////PRE SET/////////////////////////// */
@@ -217,9 +218,8 @@ body {
 
 .playersInput {
   flex: 1 1 auto;
-  background-color: #f3f7d3;
-  box-shadow: 2px 2px 5px;
-  border: 1px solid white;
+  background-color: #f2f2f2;
+  border: 1px solid #f2f2f2;
   font-weight: 500;
   font-size: 1.5rem;
   height: 150px;
@@ -228,10 +228,9 @@ body {
 
 .correct {
   flex: 1 1 auto;
-  color: white;
-  background-color: #208317;
-  box-shadow: 2px 2px 5px;
-  border: 1px solid white;
+  color: #f2f2f2;
+  background-color: #5D1049;
+  border: 1px solid #f2f2f2;
   font-weight: 500;
   font-size: 1.5rem;
   height: 150px;
@@ -240,10 +239,9 @@ body {
 
 .wrong {
   flex: 1 1 auto;
-  color: white;
-  background-color: #a30e0e;
-  box-shadow: 2px 2px 5px;
-  border: 1px solid white;
+  color: #f2f2f2;
+  background-color: #E30425;
+  border: 1px solid #f2f2f2;
   font-weight: 500;
   font-size: 1.5rem;
   height: 150px;
@@ -264,8 +262,8 @@ body {
     opacity: 1; }
   100% {
     opacity: 1;
-    transform: translateY(-20px);
-    background-color: #a30e0e;
+    transform: translateY(-15px);
+    background-color: #720D5D;
     display: none; } }
 
 @keyframes buttonApear {

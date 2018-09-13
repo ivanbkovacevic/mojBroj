@@ -27,9 +27,12 @@
   }
   
   body {
+     
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
       line-height: 1.6;
+      background-color: $color-back;
+
   }
   /* 
   ////////////////PRE SET/////////////////////////// */
@@ -43,7 +46,6 @@
     display: none;
   }
     
-  
     .container{
         &--btnNum {
         display: flex;
@@ -77,41 +79,41 @@
 }
   
     .playersInput{
-      flex: 1 1 auto ;
-        background-color: rgb(243, 247, 211);
-        box-shadow: 2px 2px 5px;
-        border: 1px solid white;
+        flex: 1 1 auto ;
+        background-color: $color-back;
+        border: 1px solid $color-back;
         font-weight: 500;
         font-size: 1.5rem;
         height: 150px;
         padding: 5px 15px;
-        margin-bottom: 50px;
+        margin-bottom: 50px;      
+
     }
   
     .correct{
       flex: 1 1 auto ;
-      color:white;
+      color:$color-back;
         background-color: $color-primary;
-        box-shadow: 2px 2px 5px;
-        border: 1px solid white;
+        border: 1px solid $color-back;
         font-weight: 500;
         font-size: 1.5rem;
         height: 150px;
         padding: 5px 15px;
         margin-bottom: 50px;
+
     }
   
     .wrong{
         flex: 1 1 auto ;
-        color:white;
+        color:$color-back;
         background-color: $color-wrong;
-        box-shadow: 2px 2px 5px;
-        border: 1px solid white;
+        border: 1px solid $color-back;
         font-weight: 500;
         font-size: 1.5rem;
         height: 150px;
         padding: 5px 15px; 
         margin-bottom: 50px;
+
     }
   
   
@@ -131,8 +133,8 @@
     @keyframes  buttonDisapear {
         0% {opacity: 1}
         100%{opacity:1;
-             transform:translateY(-20px);
-             background-color:$color-wrong;
+             transform:translateY(-15px);
+             background-color:$color-primary-light;
             display: none}
     }
     
