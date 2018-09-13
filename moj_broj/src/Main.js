@@ -334,8 +334,9 @@ class BtnNumGroup extends Component {
         )
 
         return (
-            <div className='container-fluid'>
+            <div className='app'>
                 {/* <div className='state'><per>{JSON.stringify(this.state, null, 2)}</per></div> */}
+            
                 <Row>
                     <Col lg={4} md={2} ></Col>
                     <Col lg={4} md={8} >
