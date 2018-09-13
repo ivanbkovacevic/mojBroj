@@ -26,6 +26,7 @@ class BtnNumGroup extends Component {
         gameStarted: false,
         win: 0,
         loss: 0,
+        missed:0,
         buttonType: null,
         numbersAlowed: true,
         operandsAlowed: false,
@@ -235,7 +236,7 @@ class BtnNumGroup extends Component {
     }
 
     Calculate = () => {
-        let { btnClickedArr, win, loss, targetNumber, message,klasaSolution } = this.state;
+        let { btnClickedArr, win, loss, targetNumber, message,klasaSolution,missed } = this.state;
         let solutionString = [];
         let solution = btnClickedArr.map(btn => {
             return solutionString.push(btn.value)
@@ -258,12 +259,16 @@ class BtnNumGroup extends Component {
                 loss++;
                 message = 'RESENJE NIJE TACNO :( ';
                 klasaSolution='wrong';
-                this.setState({ loss, message, solution,klasaSolution });
-            
+                this.setState({ loss, message, solution,klasaSolution });       
       }
+      
+      let missedCurrent=Math.abs(targetNumber-solution);
+      missed=missed+missedCurrent;
+      this.setState({missed});
     }
 
     ResetAll = () => {
+        let {loss,missed}=this.state;
         this.setState({
             targetNumber: 0,
             numbersArray: [],
@@ -282,10 +287,13 @@ class BtnNumGroup extends Component {
             solution: '',
             klasaSolution:'playersInput'
         });
+        // loss++;
+        // missed+=200;
+        // this.setState({loss,missed});
     }
 
     render() {
-        let { solution, win, loss } = this.state;
+        let { solution, win, loss,missed } = this.state;
         let buttonsNum = null;  // renderovanje dugmadi za brojeve
         let buttonsOperand = null;  // renderovanje dugmadi za brojeve
         let buttonsOperandSpecial = null;  // renderovanje dugmadi za brojeve
@@ -331,7 +339,7 @@ class BtnNumGroup extends Component {
                 <Row>
                     <Col lg={4} md={2} ></Col>
                     <Col lg={4} md={8} >
-                        <Score win={win} loss={loss} clock={this.state.clock} />
+                        <Score win={win} loss={loss} missed={missed} clock={this.state.clock} />
                     </Col>
                     <Col lg={4} md={2}></Col>
                 </Row>
@@ -341,7 +349,7 @@ class BtnNumGroup extends Component {
                     <Col lg={4} md={8}>
                    
                         <div className='button-target'>
-                        {/* <p>TRAŽENI BROJ</p> */}
+                      
                         {this.state.targetNumber}</div>
                     </Col>
                     <Col lg={4} md={2}></Col>
@@ -353,9 +361,6 @@ class BtnNumGroup extends Component {
                     <div className='container--btnFunc'>
                    
                         <button className='button-functional--start' onClick={this.generateTarget}>START</button>
-                        {/* <button className='button-functional--delete' onClick={this.DeleteButtonsClicked}>OBRIŠI POSLEDNJE</button>
-                        <button className='button-functional--eqa' onClick={this.Calculate}> = </button>
-                        <button className='button-functional--reset' onClick={this.ResetAll} resetovati={this.ResetAll}>RESETUJ</button> */}
                         <svg className="icon" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg>
                         <svg className="icon" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
                         <svg className="icon" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>

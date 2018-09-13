@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/mojbroj.css';
-import { Form,FormGroup, Col, ControlLabel,FormControl,Button,Checkbox} from 'react-bootstrap';
+import { Form,FormGroup, Col, ControlLabel,FormControl,Button,Checkbox,Row,} from 'react-bootstrap';
 import Funkcija from './Funkcija';
 
 class Score extends Component {
@@ -9,8 +9,6 @@ class Score extends Component {
         player:[ {name:'ivan',password:'ivantest',loss:0,win:0} ]
     }
 
-  
-
     render() {
         return (
             <div>
@@ -18,7 +16,7 @@ class Score extends Component {
                 <div className='uputstvo'>
                     <h3>UPUTSTVO:</h3>
                     <p>Pronađite traženi broj postavkom datih brojeva u matematičku jednačinu. Možete iskoristiti svaki od ponuđenih brojeva samo jedanput.
-                        Ne smete postaviti dva broja zaredom bez znaka operacije između njih. Operacija mora biti matematički ispravna.</p>
+                    Ne smete postaviti dva broja zaredom bez znaka operacije između njih. Operacija mora biti matematički ispravna.</p>
                 </div>
                 <div>
                     <Form horizontal>
@@ -30,7 +28,6 @@ class Score extends Component {
                             <FormControl type="text" placeholder="Name" />
                         </Col>
                     </FormGroup>
-
                     <FormGroup controlId="formHorizontalPassword">
                         <Col componentClass={ControlLabel} sm={2}>
                             Password
@@ -53,14 +50,18 @@ class Score extends Component {
                     </FormGroup>
                 </Form>
                 </div>
-                <div className='semafor'>
-                    <span>POBEDE: <button className='button-win'>{this.props.win} </button> </span>
-                    <span>     PORAZI  : <button className='button-loss'>{this.props.loss} </button>  </span>
-                    <span>{this.props.message}</span>
-
-                    {/* <div id="time">{this.state.clock}</div>
-                    <button onClick={this.reset}>reset timer</button> */}
-                </div>
+                <Row>
+                   <Col lg={12}>
+                        <div className='semafor'>
+                            <span>POBEDE: <button className='button-win'>{this.props.win} </button> </span>
+                            <span>     PORAZI  : <button className='button-loss'>{this.props.loss} </button>  </span>
+                            <span>     OMAŠENO DOSAD ZA  : <button className='button-missed'>{this.props.missed} </button>  </span>
+                            {/* <div id="time">{this.state.clock}</div>
+                            <button onClick={this.reset}>reset timer</button> */}
+                        </div>
+                   </Col>
+                </Row>
+               
             </div>
         );
     }
