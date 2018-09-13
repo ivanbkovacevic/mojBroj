@@ -46,18 +46,26 @@
     display: none;
   }
 
-//   .app{
-//       box-shadow: 2px 2px 2px;
-//   }
+  .app {
+      background-color:$color-primary;
+      padding: 10px;
+  }
     
+
+
     .container{
+        background-color: orange;
+        padding:10px; 
+        width:100%;
+        height:100%;
+
+
         &--btnNum {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
         height: 50px;
-      
     }
   
      &--btnOpr {
@@ -75,35 +83,48 @@
             flex-wrap: wrap;
         }
         
-        &--plyInp{
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
+    
+
+        &--app--apear {
+            background-color: orange;
+            padding: 10px; 
+            animation-name: app-growing;
+            animation-duration: 0.3s;
+            animation-fill-mode: forwards;
+
+        }
+
+        &--app--disapear {
+            background-color: orange;
+            padding: 10px; 
+            animation-name: app-shrink;
+            animation-duration: 0.4s;
+            animation-fill-mode: forwards;
+
+        }
+
+        &--pInput{
+            width:100%;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.5rem;
+            padding: 5px 15px;
+            margin: 10px;
+
         }
 }
   
-    .playersInput{
-        flex: 1 1 auto ;
-        background-color: $color-back;
-        border: 1px solid $color-back;
-        font-weight: 500;
-        font-size: 1.5rem;
-        height: 150px;
-        padding: 5px 15px;
-        margin-bottom: 50px;      
 
-    }
-  
     .correct{
-      flex: 1 1 auto ;
-      color:$color-back;
+        flex: 1 1 auto ;
+        color:$color-back;
         background-color: $color-primary;
         border: 1px solid $color-back;
         font-weight: 500;
         font-size: 1.5rem;
-        height: 150px;
+        height: 120px;
         padding: 5px 15px;
-        margin-bottom: 50px;
+        margin: 10px;
 
     }
   
@@ -114,34 +135,39 @@
         border: 1px solid $color-back;
         font-weight: 500;
         font-size: 1.5rem;
-        height: 150px;
+        height: 120px;
         padding: 5px 15px; 
-        margin-bottom: 50px;
+        margin: 10px
 
     }
   
   
     .alert{
-        margin-top: 30px;
+      
         font-size: 1rem;
         border-radius: 0%;
         width: 100%;
     }
   
-    .message{
+    .message {
+
       font-size: 1.3rem;
+
     }
 
+    .test {
+        border:1px solid black;
+        width: 50%;
+    }
 
-  
-   
   
     @keyframes  buttonDisapear {
         0% {opacity: 1}
+
         100%{opacity:1;
              transform:translateY(-15px);
-             background-color:$color-primary-light;
-            display: none}
+             background-color: $color-primary-verylight;
+             display: none }
     }
     
     @keyframes  buttonApear {
@@ -165,3 +191,21 @@
       100%{transform:scale(1);opacity: 1;}
      
   }
+
+  @keyframes app-growing{
+      0%{
+          height:75vh;
+      }
+      100%{
+          height:100vh;
+      }
+  }
+
+  @keyframes app-shrink{
+    0%{
+        height:100vh;
+    }
+    100%{
+        height:75vh;
+    }
+}

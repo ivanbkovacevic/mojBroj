@@ -6,7 +6,7 @@ class PlayersScreen extends Component {
 
     render() {
         let message=null;
-        let klasa=`playersInput ${this.props.klasaSolution}`
+        let klasa=this.props.klasaSolution
         let playersInput=this.props.btnClickedArr; 
             playersInput= playersInput.map((input,i)=>{
             return <span key={i}>{input.value}</span>
@@ -22,10 +22,10 @@ class PlayersScreen extends Component {
              }
                 
         return (
-            <div className='container--plyInp'>
-            <div className={klasa}> {playersInput} = <span>{this.props.solution} </span>  
+       
+            <div className={klasa}> <div className='container--pInput'>{playersInput} = <span>{this.props.solution} </span></div>  
                {message}
-            </div>
+        
           </div>
         );
     }

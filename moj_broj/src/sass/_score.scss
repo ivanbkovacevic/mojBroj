@@ -1,7 +1,7 @@
 
 .uputstvo{
     background-color: $color-primary;
-    color:white;
+    color: $color-back;
     width: 100%;
     padding: 10px;
     font-size: 1.5rem;
@@ -11,19 +11,21 @@
 
 .semafor{
   background-color: $color-primary;
-  color:white;
+  border: 1px solid $color-back;
+  color:$color-back;
   width: 100%;
   text-align: center;
   padding: 5px;
   font-size: 1.1rem;
   margin-bottom: 2px;
+  
 }
 
 
 .button-win{
-    color: white;
+    color:$color-back;
     background-color: $color-primary;
-    border: 1px solid white;
+    border: 1px solid $color-back;
     border-radius: 10%;
     font-size: 1.5rem;
     font-weight: 500;
@@ -36,9 +38,9 @@
   }
   
   .button-loss{
-    color: white;
+    color:$color-back;
     background-color:$color-primary;
-    border: 1px solid white;
+    border: 1px solid $color-back;
     border-radius: 10%;
     font-size: 1.5rem;
     font-weight: 500;
@@ -53,7 +55,7 @@
   .button-missed{
     color: white;
     background-color:$color-primary;
-    border: 1px solid white;
+    border: 1px solid $color-back;
     border-radius: 10%;
     font-size: 1rem;
     font-weight: 500;

@@ -36,11 +36,12 @@ class BtnNumGroup extends Component {
         zagZtv:0,
         message: '',
         solution: '',
-        klasaSolution:'playersInput'
+        klasaSolution:'playersInput',
+        klasaApp:'container'
     }
 
     generateTarget = () => {  // pravi target brojeve i dugmad kao objekti
-        let { numbersArray, numSpecArr, gameStarted, operandsArray, oprSpecArray, message } = this.state;
+        let { numbersArray, numSpecArr, gameStarted, operandsArray, oprSpecArray, message,klasaApp } = this.state;
 
         if (gameStarted === false) {
             let min = 1;
@@ -77,8 +78,9 @@ class BtnNumGroup extends Component {
             oprSpecArray = [operand5, operand6];
 
             gameStarted = true;
+            klasaApp='container--app--apear'
             message = '';
-            this.setState({ targetNumber, target1, target2, target3, target4, target5, target6, numbersArray, numSpecArr, operandsArray, oprSpecArray, gameStarted, message })
+            this.setState({ targetNumber, target1, target2, target3, target4, target5, target6, numbersArray, numSpecArr, operandsArray, oprSpecArray, gameStarted, message,klasaApp })
 
         } else {
 
@@ -230,7 +232,7 @@ class BtnNumGroup extends Component {
             buttonOrder = 0;
             numbersAlowed = true;
             operandsAlowed = false;
-            klasaSolution='playersInput'
+            klasaSolution=''
             this.setState({ message, operandsAlowed, numbersAlowed, buttonOrder, solution,klasaSolution });
         }
     }
@@ -285,7 +287,8 @@ class BtnNumGroup extends Component {
             operandDisabled: false,
             message: '',
             solution: '',
-            klasaSolution:'playersInput'
+            klasaSolution:'',
+            klasaApp:'container--app--disapear'
         });
         // loss++;
         // missed+=200;
@@ -293,10 +296,11 @@ class BtnNumGroup extends Component {
     }
 
     render() {
-        let { solution, win, loss,missed } = this.state;
+        let { solution, win, loss,missed,klasaApp } = this.state;
         let buttonsNum = null;  // renderovanje dugmadi za brojeve
         let buttonsOperand = null;  // renderovanje dugmadi za brojeve
         let buttonsOperandSpecial = null;  // renderovanje dugmadi za brojeve
+        
 
         buttonsNum = (
             this.state.numbersArray.map((btn, i) => {
@@ -334,72 +338,111 @@ class BtnNumGroup extends Component {
         )
 
         return (
-            <div className='app'>
-                {/* <div className='state'><per>{JSON.stringify(this.state, null, 2)}</per></div> */}
-            
-                <Row>
-                    <Col lg={4} md={2} ></Col>
-                    <Col lg={4} md={8} >
-                        <Score win={win} loss={loss} missed={missed} clock={this.state.clock} />
-                    </Col>
-                    <Col lg={4} md={2}></Col>
-                </Row>
+            // <div>
+            //     {/* <div className='state'><per>{JSON.stringify(this.state, null, 2)}</per></div> */}
 
-                <Row>
-                    <Col lg={4} md={2}></Col>
-                    <Col lg={4} md={8}>
-                   
-                        <div className='button-target'>
-                      
-                        {this.state.targetNumber}</div>
-                    </Col>
-                    <Col lg={4} md={2}></Col>
-                </Row>
 
-                <Row>
-                    <Col lg={4} md={2}></Col>
-                    <Col lg={4} md={8}>
-                    <div className='container--btnFunc'>
-                   
-                        <button className='button-functional--start' onClick={this.generateTarget}>START</button>
-                        <svg className="icon" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg>
-                        <svg className="icon" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
-                        <svg className="icon" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
-                        </div>
-                    </Col>
-                    <Col lg={4} md={2}></Col>
+            //     <Row>
+            //         <Col lg={4} md={2} ></Col>
+            //         <Col lg={4} md={8} >
+            //         <div className="container">
+            //             <Score win={win} loss={loss} missed={missed} clock={this.state.clock} />
+            //         </div>
+            //         </Col>
+            //         <Col lg={4} md={2}></Col>
+            //     </Row>
 
-                </Row>
+            //     <Row>
+            //         <Col lg={4} md={2}></Col>
+            //         <Col lg={4} md={8}>
+            //         <div className="container">
+            //             <div className='button-target'>{this.state.targetNumber}</div>
+            //         </div>
+            //         </Col>
+            //         <Col lg={4} md={2}></Col>
+            //     </Row>
 
-                <Row>
-                    <Col lg={4} md={2}></Col>
-                    <Col lg={4} md={8}>
-                    <div className='container--btnNum'>{buttonsNum}</div>
-                    </Col>
-                    <Col lg={4} md={2}></Col>
-                </Row>
-                <Row>
-                    <Col lg={4} md={2}></Col>
-                    <Col lg={4} md={8}>
-                    <div className='container--btnOpr'> {buttonsOperand} {buttonsOperandSpecial}</div>
-                       
-                    </Col>
-                    <Col lg={4} md={2}></Col>
-                </Row>
+            //     <Row>
+            //         <Col lg={4} md={2}></Col>
+            //         <Col lg={4} md={8}>
+            //         <div className="container">
+            //         <div className='container--btnFunc'>
+            //             <button className='button-functional--start' onClick={this.generateTarget}>START</button>
+            //             <svg className="icon" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg>
+            //             <svg className="icon" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
+            //             <svg className="icon" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
+            //         </div>
+            //         </div>
 
+            //         </Col>
+            //         <Col lg={4} md={2}></Col>
+
+            //     </Row>
+
+            //     <Row>
+            //         <Col lg={4} md={2}></Col>
+            //         <Col lg={4} md={8}>
+            //         <div className="container">
+            //         <div className='container--btnNum'>{buttonsNum}</div>
+            //         </div>
+            //         </Col>
+            //         <Col lg={4} md={2}></Col>
+            //     </Row>
+            //     <Row>
+            //         <Col lg={4} md={2}></Col>
+            //         <Col lg={4} md={8}>
+            //         <div className="container">
+            //         <div className='container--btnOpr'> {buttonsOperand} {buttonsOperandSpecial}</div>
+            //            </div>
+            //         </Col>
+            //         <Col lg={4} md={2}></Col>
+            //     </Row>
+
+            //     <Row>
+            //         <Col lg={4} md={2}></Col>
+            //         <Col lg={4} md={8}>
+            //         <div className="container">
+            //             <PlayersScreen btnClickedArr={this.state.btnClickedArr}
+            //                 solution={solution}
+            //                 message={this.state.message}
+            //                 klasaSolution={this.state.klasaSolution}
+            //             />
+            //             </div>
+            //         </Col>
+            //         <Col lg={4} md={2}></Col>
+            //     </Row>
+
+            //     <p>------------------------------------------------</p>
+          
                 <Row>
-                    <Col lg={4} md={2}></Col>
-                    <Col lg={4} md={8}>
-                        <PlayersScreen btnClickedArr={this.state.btnClickedArr}
+                    <Col lg={3} md={3} sm={2} >ppoo</Col>
+                        <Col lg={6} md={6} sm={8} >ppoo
+                        <div>
+                        <div className={this.state.klasaApp}>
+                            <Score win={win} loss={loss} missed={missed} clock={this.state.clock} />
+                            <div className='button-target'>{this.state.targetNumber}</div>
+                            <div className='container--btnFunc'>
+                             <button className='button-functional--start' onClick={this.generateTarget}>START</button>
+                              <svg className="icon" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg>
+                              <svg className="icon" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
+                              <svg className="icon" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
+                              </div>
+                              <div className='container--btnNum'>{buttonsNum}</div>
+                              <div className='container--btnOpr'> {buttonsOperand} {buttonsOperandSpecial}</div>
+                            <PlayersScreen btnClickedArr={this.state.btnClickedArr}
                             solution={solution}
                             message={this.state.message}
                             klasaSolution={this.state.klasaSolution}
-                        />
-                    </Col>
-                    <Col lg={4} md={2}></Col>
+                            />
+                           </div>  
+                           </div>
+                        </Col>
+                    <Col lg={3} md={3} sm={2} >ppoo</Col>
                 </Row>
+                // </div>
 
-            </div>
+
+            // </div>
         );
     }
 

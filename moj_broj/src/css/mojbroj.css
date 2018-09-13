@@ -1,6 +1,6 @@
 .uputstvo {
   background-color: #5D1049;
-  color: white;
+  color: #f2f2f2;
   width: 100%;
   padding: 10px;
   font-size: 1.5rem;
@@ -9,7 +9,8 @@
 
 .semafor {
   background-color: #5D1049;
-  color: white;
+  border: 1px solid #f2f2f2;
+  color: #f2f2f2;
   width: 100%;
   text-align: center;
   padding: 5px;
@@ -17,9 +18,9 @@
   margin-bottom: 2px; }
 
 .button-win {
-  color: white;
+  color: #f2f2f2;
   background-color: #5D1049;
-  border: 1px solid white;
+  border: 1px solid #f2f2f2;
   border-radius: 10%;
   font-size: 1.5rem;
   font-weight: 500;
@@ -30,9 +31,9 @@
   margin-top: 5px; }
 
 .button-loss {
-  color: white;
+  color: #f2f2f2;
   background-color: #5D1049;
-  border: 1px solid white;
+  border: 1px solid #f2f2f2;
   border-radius: 10%;
   font-size: 1.5rem;
   font-weight: 500;
@@ -45,7 +46,7 @@
 .button-missed {
   color: white;
   background-color: #5D1049;
-  border: 1px solid white;
+  border: 1px solid #f2f2f2;
   border-radius: 10%;
   font-size: 1rem;
   font-weight: 500;
@@ -59,7 +60,7 @@
   flex: 1 1 auto;
   color: white;
   background-color: #5D1049;
-  border: 1px solid white;
+  border: 1px solid #f2f2f2;
   border-radius: 0%;
   font-size: 1.5rem;
   font-weight: 500;
@@ -72,12 +73,13 @@
   margin-top: 2px; }
   .button-functional--start:hover {
     background-color: #720D5D;
-    color: white; }
+    color: #f2f2f2; }
 
 .button-target {
-  color: white;
+  color: #f2f2f2;
   text-align: center;
   background-color: #5D1049;
+  border: 1px solid #f2f2f2;
   border-radius: 0%;
   font-weight: 500;
   font-size: 4rem;
@@ -92,9 +94,10 @@
   opacity: 0.4;
   color: white;
   background-color: #720D5D;
+  border: 1px solid #f2f2f2;
   border-radius: 0%;
   font-size: 3rem;
-  font-weight: 500;
+  font-weight: 100;
   transition: all 0.5s;
   height: 50px;
   width: 100px;
@@ -102,7 +105,7 @@
   margin: 1px;
   margin-top: 10px;
   animation-name: buttonDisapear;
-  animation-duration: 0.4s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards; }
 
 .button-enabled {
@@ -110,9 +113,10 @@
   opacity: 0.4;
   color: white;
   background-color: #5D1049;
+  border: 1px solid #f2f2f2;
   border-radius: 0%;
   font-size: 3rem;
-  font-weight: 500;
+  font-weight: 100;
   transition: all 0.5s;
   height: 50px;
   width: 100px;
@@ -126,13 +130,14 @@
   animation-timing-function: ease-in-out; }
   .button-enabled:hover {
     background-color: #720D5D;
-    color: white;
+    color: #f2f2f2;
     transform: scale(1.1); }
 
 .button-operand {
   flex: 1 1 auto;
-  color: white;
+  color: #f2f2f2;
   background-color: #5D1049;
+  border: 1px solid #f2f2f2;
   border-radius: 0%;
   font-size: 2rem;
   font-weight: 500;
@@ -148,16 +153,16 @@
   animation-timing-function: ease-in-out; }
   .button-operand:hover {
     background-color: #720D5D;
-    color: white; }
+    color: #f2f2f2; }
   .button-operand:active {
     background-color: #720D5D;
-    color: white; }
+    color: #f2f2f2; }
 
 .icon {
   flex: 0 1 auto;
   fill: white;
   background-color: #5D1049;
-  border: 1px solid white;
+  border: 1px solid #f2f2f2;
   height: 50px;
   width: 50px;
   padding: 5px;
@@ -193,39 +198,50 @@ body {
 .value--hide {
   display: none; }
 
-.container--btnNum {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 50px; }
+.app {
+  background-color: #5D1049;
+  padding: 10px; }
 
-.container--btnOpr {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 50px; }
-
-.container--btnFunc {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; }
-
-.container--plyInp {
-  display: flex;
-  flex-direction: row;
-  justify-content: center; }
-
-.playersInput {
-  flex: 1 1 auto;
-  background-color: #f2f2f2;
-  border: 1px solid #f2f2f2;
-  font-weight: 500;
-  font-size: 1.5rem;
-  height: 150px;
-  padding: 5px 15px;
-  margin-bottom: 50px; }
+.container {
+  background-color: orange;
+  padding: 10px;
+  width: 100%;
+  height: 100%; }
+  .container--btnNum {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px; }
+  .container--btnOpr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px; }
+  .container--btnFunc {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+  .container--app--apear {
+    background-color: orange;
+    padding: 10px;
+    animation-name: app-growing;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards; }
+  .container--app--disapear {
+    background-color: orange;
+    padding: 10px;
+    animation-name: app-shrink;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards; }
+  .container--pInput {
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 5px 15px;
+    margin: 10px; }
 
 .correct {
   flex: 1 1 auto;
@@ -234,9 +250,9 @@ body {
   border: 1px solid #f2f2f2;
   font-weight: 500;
   font-size: 1.5rem;
-  height: 150px;
+  height: 120px;
   padding: 5px 15px;
-  margin-bottom: 50px; }
+  margin: 10px; }
 
 .wrong {
   flex: 1 1 auto;
@@ -245,12 +261,11 @@ body {
   border: 1px solid #f2f2f2;
   font-weight: 500;
   font-size: 1.5rem;
-  height: 150px;
+  height: 120px;
   padding: 5px 15px;
-  margin-bottom: 50px; }
+  margin: 10px; }
 
 .alert {
-  margin-top: 30px;
   font-size: 1rem;
   border-radius: 0%;
   width: 100%; }
@@ -258,13 +273,17 @@ body {
 .message {
   font-size: 1.3rem; }
 
+.test {
+  border: 1px solid black;
+  width: 50%; }
+
 @keyframes buttonDisapear {
   0% {
     opacity: 1; }
   100% {
     opacity: 1;
     transform: translateY(-15px);
-    background-color: #720D5D;
+    background-color: #a5218b;
     display: none; } }
 
 @keyframes buttonApear {
@@ -295,3 +314,15 @@ body {
   100% {
     transform: scale(1);
     opacity: 1; } }
+
+@keyframes app-growing {
+  0% {
+    height: 75vh; }
+  100% {
+    height: 100vh; } }
+
+@keyframes app-shrink {
+  0% {
+    height: 100vh; }
+  100% {
+    height: 75vh; } }
