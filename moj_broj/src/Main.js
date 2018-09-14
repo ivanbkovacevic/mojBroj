@@ -425,9 +425,9 @@ class BtnNumGroup extends Component {
                         <div className='container--btnFunc'>
                             <button className='button-functional--start' onClick={this.generateTarget}>START</button>
                             <div className='container--icons'>
-                                <svg className="icon--back" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg>
-                                <svg className="icon--confirm" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
-                                <svg className="icon--reset" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
+                                <div className='container--icon'><svg className="icon-back" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg></div>
+                                <div className='container--icon'> <svg className="icon-confirm" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg></div>
+                                <div className='container--icon'><svg className="icon-reset" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg></div>
                             </div>
                         </div>
                     <div className={klasaApp}>

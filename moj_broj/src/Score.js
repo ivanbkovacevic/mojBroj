@@ -19,7 +19,7 @@ class Score extends Component {
                     Ne smete postaviti dva broja zaredom bez znaka operacije između njih. Operacija mora biti matematički ispravna.</p>
                 </div>
                 <div>
-                    <Form horizontal>
+                    {/* <Form horizontal>
                     <FormGroup controlId="formHorizontalName">
                         <Col componentClass={ControlLabel} sm={2}>
                             Name
@@ -48,7 +48,7 @@ class Score extends Component {
                             <Button type="submit">Sign in</Button>
                         </Col>
                     </FormGroup>
-                </Form>
+                </Form> */}
                 </div>
                 <Row>
                    <Col lg={12}>
