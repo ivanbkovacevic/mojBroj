@@ -26,22 +26,22 @@ class BtnNumGroup extends Component {
         gameStarted: false,
         win: 0,
         loss: 0,
-        missed:0,
+        missed: 0,
         buttonType: null,
         numbersAlowed: true,
         operandsAlowed: false,
         isDisabled: false,
-       // operandDisabled: false,
-        zagOtv:0,
-        zagZtv:0,
+        // operandDisabled: false,
+        zagOtv: 0,
+        zagZtv: 0,
         message: '',
         solution: '',
-        klasaSolution:'playersInput',
-        klasaApp:'container'
+        klasaSolution: 'playersInput',
+        klasaApp: ''
     }
 
     generateTarget = () => {  // pravi target brojeve i dugmad kao objekti
-        let { numbersArray, numSpecArr, gameStarted, operandsArray, oprSpecArray, message,klasaApp } = this.state;
+        let { numbersArray, numSpecArr, gameStarted, operandsArray, oprSpecArray, message, klasaApp } = this.state;
 
         if (gameStarted === false) {
             let min = 1;
@@ -66,8 +66,8 @@ class BtnNumGroup extends Component {
             let target6 = [25, 50, 75, 100, 25, 50, 75, 100, 25, 50];
             let index1 = Math.floor(Math.random() * 10);
             target6 = { id: 5, value: target6[index1], clicked: false, order: 0, alowed: true, type: 'number' }
-         
-           let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
+
+            let targetNumber = Math.floor(Math.random() * (max1 - min1 + 1) + min1);
 
 
             numbersArray = numbersArray.slice();
@@ -78,9 +78,9 @@ class BtnNumGroup extends Component {
             oprSpecArray = [operand5, operand6];
 
             gameStarted = true;
-            klasaApp='container--app--apear'
+            klasaApp = 'container--apear'
             message = '';
-            this.setState({ targetNumber, target1, target2, target3, target4, target5, target6, numbersArray, numSpecArr, operandsArray, oprSpecArray, gameStarted, message,klasaApp })
+            this.setState({ targetNumber, target1, target2, target3, target4, target5, target6, numbersArray, numSpecArr, operandsArray, oprSpecArray, gameStarted, message, klasaApp })
 
         } else {
 
@@ -93,7 +93,7 @@ class BtnNumGroup extends Component {
 
     ButtonClicked = (id, i, alowed, type) => {
         let { numbersArray, btnClickedArr, buttonOrder, numbersAlowed, operandsAlowed, message } = this.state;  //// dugme novo kao objekat ... ovde se setuje kada se klikne na njega
-        message='';
+        message = '';
         if (numbersAlowed === true) {
             numbersArray = numbersArray.slice();
             buttonOrder += 1;  ////////// redovni destructuring 
@@ -120,8 +120,8 @@ class BtnNumGroup extends Component {
 
     ButtonOperandClicked = (id, i, alowed, type) => {
         let { btnClickedArr, buttonOrder, numbersAlowed, operandsAlowed, operandsArray, message } = this.state;
-        message='';
-      
+        message = '';
+
 
         if (operandsAlowed === true) {
             operandsArray = operandsArray.slice();
@@ -134,7 +134,7 @@ class BtnNumGroup extends Component {
             let btnOprClicked = { ...btnOpr }; // pravljenje kopije objekta
 
             btnClickedArr.push(btnOprClicked);// ubacivanje u btnClick niz...niz koji ispisuje inpute
-            if(btnClickedArr[0].type==='operand'){
+            if (btnClickedArr[0].type === 'operand') {
                 message = 'Ne moze operacija da zapocne operatorom';
                 this.setState({ message });
             }
@@ -151,7 +151,7 @@ class BtnNumGroup extends Component {
     }
 
     ButtonOperandSpecialClicked = (id, k, alowed, type) => {
-        let { oprSpecArray, btnClickedArr, buttonOrder,message } = this.state;
+        let { oprSpecArray, btnClickedArr, buttonOrder, message } = this.state;
         oprSpecArray = oprSpecArray.slice();
         buttonOrder += 1;  ////////// redovni destructuring 
         ///////////////////////////////////////////////////////////////////////////////
@@ -166,35 +166,35 @@ class BtnNumGroup extends Component {
         this.setState({ oprSpecArray, btnClickedArr, buttonOrder });
 
 
-        if(btnClickedArr.length >1){   /////////// uslovi vezani za upotrebe zagrada   
-            for(let i=1; i<btnClickedArr.length; i++){
-                if(btnClickedArr[i-1].value==='(' && btnClickedArr[i].value===')'){
-                    message='Nepravilna upotreba zagrada';
-                    this.setState({message});
-                }else if(btnClickedArr[i-1].value===')' && btnClickedArr[i].value==='('){
-                    message='Nepravilna upotreba zagrada';
-                    this.setState({message});
-                }else if(btnClickedArr[i-1].value===')' && btnClickedArr[i].type==='number'){
-                    message='Izostao vam je operator izmedju zagrade i broja';
-                    this.setState({message});
-                }else if(btnClickedArr[i-1].type==='number' && btnClickedArr[i].value==='('){
-                    message='Izostao vam je operator izmedju broja i zagrade';
-                    this.setState({message});
+        if (btnClickedArr.length > 1) {   /////////// uslovi vezani za upotrebe zagrada   
+            for (let i = 1; i < btnClickedArr.length; i++) {
+                if (btnClickedArr[i - 1].value === '(' && btnClickedArr[i].value === ')') {
+                    message = 'Nepravilna upotreba zagrada';
+                    this.setState({ message });
+                } else if (btnClickedArr[i - 1].value === ')' && btnClickedArr[i].value === '(') {
+                    message = 'Nepravilna upotreba zagrada';
+                    this.setState({ message });
+                } else if (btnClickedArr[i - 1].value === ')' && btnClickedArr[i].type === 'number') {
+                    message = 'Izostao vam je operator izmedju zagrade i broja';
+                    this.setState({ message });
+                } else if (btnClickedArr[i - 1].type === 'number' && btnClickedArr[i].value === '(') {
+                    message = 'Izostao vam je operator izmedju broja i zagrade';
+                    this.setState({ message });
                     ///////////////////////
-                }else if(btnClickedArr[i-1].value==='(' && btnClickedArr[i].type==='operand'){
-                    message='Izostao vam je broj izmedju zagrade i operatora';
-                    this.setState({message});
-                }else if(btnClickedArr[i-1].type==='operand' && btnClickedArr[i].value===')'){
-                    message='Izostao vam je broj izmedju operatora i zagrade';
-                    this.setState({message});
-                } 
+                } else if (btnClickedArr[i - 1].value === '(' && btnClickedArr[i].type === 'operand') {
+                    message = 'Izostao vam je broj izmedju zagrade i operatora';
+                    this.setState({ message });
+                } else if (btnClickedArr[i - 1].type === 'operand' && btnClickedArr[i].value === ')') {
+                    message = 'Izostao vam je broj izmedju operatora i zagrade';
+                    this.setState({ message });
+                }
             }
-           
+
         }
     }
 
     DeleteButtonsClicked = () => {  // brisanje upisanih dugmadi i vracanje dugmadi u funkciju  // koristi se findIndex sa id da bi se pronaslo dugme
-        let { numbersArray, operandsArray, btnClickedArr, buttonOrder, message, numbersAlowed, operandsAlowed,klasaSolution, solution } = this.state;
+        let { numbersArray, operandsArray, btnClickedArr, buttonOrder, message, numbersAlowed, operandsAlowed, klasaSolution, solution } = this.state;
         btnClickedArr = btnClickedArr.slice();
         numbersArray = numbersArray.slice();
         operandsArray = operandsArray.slice();
@@ -209,8 +209,8 @@ class BtnNumGroup extends Component {
                 btnClickedArr.pop();
                 numbersAlowed = true;
                 operandsAlowed = false;
-                message='';
-                this.setState({ btnClickedArr, numbersArray, buttonOrder, numbersAlowed,message, operandsAlowed });
+                message = '';
+                this.setState({ btnClickedArr, numbersArray, buttonOrder, numbersAlowed, message, operandsAlowed });
 
             } else if (buttonLast.type === 'operand') {
                 let indexOpr = operandsArray.findIndex(x => x.id === buttonLast.id);
@@ -218,8 +218,8 @@ class BtnNumGroup extends Component {
                 btnClickedArr.pop();
                 numbersAlowed = false;
                 operandsAlowed = true;
-                message='';
-                this.setState({ btnClickedArr, operandsArray, buttonOrder, numbersAlowed,message, operandsAlowed });
+                message = '';
+                this.setState({ btnClickedArr, operandsArray, buttonOrder, numbersAlowed, message, operandsAlowed });
             } else {
                 btnClickedArr.pop();
                 this.setState({ btnClickedArr });
@@ -232,13 +232,13 @@ class BtnNumGroup extends Component {
             buttonOrder = 0;
             numbersAlowed = true;
             operandsAlowed = false;
-            klasaSolution=''
-            this.setState({ message, operandsAlowed, numbersAlowed, buttonOrder, solution,klasaSolution });
+            klasaSolution = ''
+            this.setState({ message, operandsAlowed, numbersAlowed, buttonOrder, solution, klasaSolution });
         }
     }
 
     Calculate = () => {
-        let { btnClickedArr, win, loss, targetNumber, message,klasaSolution,missed } = this.state;
+        let { btnClickedArr, win, loss, targetNumber, message, klasaSolution, missed } = this.state;
         let solutionString = [];
         let solution = btnClickedArr.map(btn => {
             return solutionString.push(btn.value)
@@ -246,31 +246,31 @@ class BtnNumGroup extends Component {
         solution = solutionString.toString();
         solution = solution.replace(/,/g, " ");
         let solutionLch = solution.slice(-1);
-        
-        
-            solutionLch = Number(solutionLch);
-            solution = eval(solution);  
-            if(solution === targetNumber){
-                win++;
-                message = 'TACNO RESENJE - CESTITAMO!';
-                klasaSolution='correct';
-                this.setState({ win, message, solution,klasaSolution });
-            }  else {
-                solution = eval(solution);
-                solution= solution.toFixed(0);
-                loss++;
-                message = 'RESENJE NIJE TACNO :( ';
-                klasaSolution='wrong';
-                this.setState({ loss, message, solution,klasaSolution });       
-      }
-      
-      let missedCurrent=Math.abs(targetNumber-solution);
-      missed=missed+missedCurrent;
-      this.setState({missed});
+
+
+        solutionLch = Number(solutionLch);
+        solution = eval(solution);
+        if (solution === targetNumber) {
+            win++;
+            message = 'TACNO RESENJE - CESTITAMO!';
+            klasaSolution = 'correct';
+            this.setState({ win, message, solution, klasaSolution });
+        } else {
+            solution = eval(solution);
+            solution = solution.toFixed(0);
+            loss++;
+            message = 'RESENJE NIJE TACNO :( ';
+            klasaSolution = 'wrong';
+            this.setState({ loss, message, solution, klasaSolution });
+        }
+
+        let missedCurrent = Math.abs(targetNumber - solution);
+        missed = missed + missedCurrent;
+        this.setState({ missed });
     }
 
     ResetAll = () => {
-        let {loss,missed}=this.state;
+        let { loss, missed } = this.state;
         this.setState({
             targetNumber: 0,
             numbersArray: [],
@@ -287,8 +287,8 @@ class BtnNumGroup extends Component {
             operandDisabled: false,
             message: '',
             solution: '',
-            klasaSolution:'',
-            klasaApp:'container--app--disapear'
+            klasaSolution: '',
+            klasaApp: 'container--disapear'
         });
         // loss++;
         // missed+=200;
@@ -296,11 +296,11 @@ class BtnNumGroup extends Component {
     }
 
     render() {
-        let { solution, win, loss,missed,klasaApp } = this.state;
+        let { solution, win, loss, missed, klasaApp } = this.state;
         let buttonsNum = null;  // renderovanje dugmadi za brojeve
         let buttonsOperand = null;  // renderovanje dugmadi za brojeve
         let buttonsOperandSpecial = null;  // renderovanje dugmadi za brojeve
-        
+
 
         buttonsNum = (
             this.state.numbersArray.map((btn, i) => {
@@ -413,33 +413,39 @@ class BtnNumGroup extends Component {
             //     </Row>
 
             //     <p>------------------------------------------------</p>
-          
-                <Row>
-                    <Col lg={3} md={3} sm={2} >ppoo</Col>
-                        <Col lg={6} md={6} sm={8} >ppoo
-                        <div>
-                        <div className={this.state.klasaApp}>
-                            <Score win={win} loss={loss} missed={missed} clock={this.state.clock} />
-                            <div className='button-target'>{this.state.targetNumber}</div>
-                            <div className='container--btnFunc'>
-                             <button className='button-functional--start' onClick={this.generateTarget}>START</button>
-                              <svg className="icon" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg>
-                              <svg className="icon" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
-                              <svg className="icon" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
-                              </div>
-                              <div className='container--btnNum'>{buttonsNum}</div>
-                              <div className='container--btnOpr'> {buttonsOperand} {buttonsOperandSpecial}</div>
-                            <PlayersScreen btnClickedArr={this.state.btnClickedArr}
-                            solution={solution}
-                            message={this.state.message}
-                            klasaSolution={this.state.klasaSolution}
-                            />
-                           </div>  
-                           </div>
-                        </Col>
-                    <Col lg={3} md={3} sm={2} >ppoo</Col>
-                </Row>
-                // </div>
+
+            <Row>
+                <Col lg={3} md={3} sm={2} ></Col>
+                <Col lg={6} md={6} sm={8} >
+
+                    <div className='container'>
+                        <Score win={win} loss={loss} missed={missed} clock={this.state.clock} />
+                        <div className='button-target'>{this.state.targetNumber}</div>
+                        </div>
+                        <div className='container--btnFunc'>
+                            <button className='button-functional--start' onClick={this.generateTarget}>START</button>
+                            <div className='container--icons'>
+                                <svg className="icon--back" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg>
+                                <svg className="icon--confirm" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
+                                <svg className="icon--reset" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
+                            </div>
+                        </div>
+                    <div className={klasaApp}>
+                        <div className='container--btnNum'>{buttonsNum}</div>
+                        <div className='container--btnOpr'>{buttonsOperand}{buttonsOperandSpecial}</div>
+                        <PlayersScreen btnClickedArr={this.state.btnClickedArr}
+                        solution={solution}
+                        message={this.state.message}
+                        klasaSolution={this.state.klasaSolution}
+                        />
+                    </div>
+                    
+
+
+                </Col>
+                <Col lg={3} md={3} sm={2} ></Col>
+            </Row>
+            // </div>
 
 
             // </div>
