@@ -6,7 +6,8 @@ class PlayersScreen extends Component {
 
     render() {
         let message=null;
-        let klasa=this.props.klasaSolution
+        let corrOrWrong=this.props.klasaSolution
+        let pInputklass=`container--pInput ${corrOrWrong}`
         let playersInput=this.props.btnClickedArr; 
             playersInput= playersInput.map((input,i)=>{
             return <span key={i}>{input.value}</span>
@@ -23,7 +24,7 @@ class PlayersScreen extends Component {
                 
         return (
        
-           <div className='container--pInput'>{playersInput} = <span>{this.props.solution} </span>
+           <div className={pInputklass}>{playersInput} = <span>{this.props.solution} </span>
              {message}
            </div>  
              

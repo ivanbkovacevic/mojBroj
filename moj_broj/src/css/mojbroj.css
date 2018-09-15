@@ -1,15 +1,15 @@
 .uputstvo {
-  background-color: #5D1049;
+  background-color: #720D5D;
   color: #f2f2f2;
   width: 100%;
   padding: 10px;
   font-size: 1.5rem;
+  font-weight: 100;
   margin-top: 10px;
   margin-bottom: 10px; }
 
 .semafor {
-  background-color: #5D1049;
-  border: 1px solid #f2f2f2;
+  background-color: #720D5D;
   color: #f2f2f2;
   width: 100%;
   text-align: center;
@@ -20,8 +20,6 @@
 .button-win {
   color: #f2f2f2;
   background-color: #5D1049;
-  border: 1px solid #f2f2f2;
-  border-radius: 10%;
   font-size: 1.5rem;
   font-weight: 500;
   transition: all 0.5s;
@@ -33,8 +31,6 @@
 .button-loss {
   color: #f2f2f2;
   background-color: #5D1049;
-  border: 1px solid #f2f2f2;
-  border-radius: 10%;
   font-size: 1.5rem;
   font-weight: 500;
   transition: all 0.5s;
@@ -46,8 +42,6 @@
 .button-missed {
   color: white;
   background-color: #5D1049;
-  border: 1px solid #f2f2f2;
-  border-radius: 10%;
   font-size: 1rem;
   font-weight: 500;
   transition: all 0.5s;
@@ -56,12 +50,103 @@
   padding: 1px 1px;
   margin-top: 5px; }
 
+.value--show {
+  border: 1px solid red;
+  display: inline-block; }
+
+.value--hide {
+  display: none; }
+
+.app {
+  background-color: #5D1049;
+  padding: 10px; }
+
+.container {
+  background-color: #5D1049;
+  padding: 10px;
+  width: 100%;
+  height: 100%; }
+  .container--btnNum {
+    height: 50px;
+    width: 100%; }
+  .container--btnOpr {
+    height: 51px;
+    width: 100%;
+    margin-top: 3px; }
+  .container--btnFunc {
+    position: relative;
+    background-color: #5D1049;
+    width: 100%;
+    height: 51px; }
+  .container--icons {
+    position: absolute;
+    right: 0%;
+    height: 100%;
+    width: 50%;
+    right: 0%; }
+  .container--apear {
+    background-color: #5D1049;
+    animation-name: pInput-growing;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards; }
+  .container--disapear {
+    background-color: #5D1049;
+    animation-name: pInput-shrink;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards; }
+  .container--pInput {
+    position: relative;
+    background-color: #5D1049;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+    height: 0%; }
+  .container-icons {
+    width: 32%;
+    height: 100%;
+    background-color: #5D1049;
+    padding-top: 15px; }
+  .container-razmak {
+    background-color: #5D1049;
+    height: 30px; }
+
+.correct {
+  color: #f2f2f2;
+  background-color: green;
+  font-weight: 500;
+  font-size: 1.5rem;
+  height: 100px;
+  padding: 5px; }
+
+.wrong {
+  color: #f2f2f2;
+  background-color: #E30425;
+  font-weight: 500;
+  font-size: 1.5rem;
+  height: 100px;
+  padding: 5px; }
+
+.alertMy {
+  position: absolute;
+  bottom: 2%;
+  font-size: 1rem;
+  border-radius: 0%;
+  height: 25%;
+  padding: 3px;
+  width: 100%; }
+
+.message {
+  font-size: 1.3rem; }
+
+button {
+  border: 0cm; }
+
 .button-functional--start {
   position: absolute;
   color: white;
   background-color: #5D1049;
-  border: 1px solid #f2f2f2;
-  border-radius: 0%;
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 5px;
@@ -71,15 +156,12 @@
   height: 100%;
   padding: 5px 5px; }
   .button-functional--start:hover {
-    background-color: #720D5D;
-    color: #f2f2f2; }
+    background-color: #720D5D; }
 
 .button-target {
   color: #f2f2f2;
   text-align: center;
-  background-color: #5D1049;
-  border: 1px solid #f2f2f2;
-  border-radius: 0%;
+  background-color: #720D5D;
   font-weight: 500;
   font-size: 4rem;
   letter-spacing: 5px;
@@ -93,8 +175,6 @@
   opacity: 0.4;
   color: white;
   background-color: #720D5D;
-  border: 1px solid #f2f2f2;
-  border-radius: 0%;
   font-size: 3rem;
   font-weight: 100;
   transition: all 0.5s;
@@ -109,9 +189,7 @@
 .button-enabled {
   opacity: 0.4;
   color: white;
-  background-color: #5D1049;
-  border: 1px solid #f2f2f2;
-  border-radius: 0%;
+  background-color: #720D5D;
   font-size: 3rem;
   font-weight: 100;
   transition: all 0.5s;
@@ -126,15 +204,13 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out; }
   .button-enabled:hover {
-    background-color: #720D5D;
+    background-color: #a5218b;
     color: #f2f2f2;
     transform: scale(1.1); }
 
 .button-operand {
   color: #f2f2f2;
-  background-color: #5D1049;
-  border: 1px solid #f2f2f2;
-  border-radius: 0%;
+  background-color: #720D5D;
   font-size: 2rem;
   font-weight: 500;
   transition: all 0.5s;
@@ -148,7 +224,7 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out; }
   .button-operand:hover {
-    background-color: #720D5D;
+    background-color: #a5218b;
     color: #f2f2f2; }
   .button-operand:active {
     background-color: #720D5D;
@@ -156,152 +232,36 @@
 
 .icon-back {
   width: 32%;
-  height: 100%;
+  height: 85%;
   position: absolute;
   right: 60%;
   fill: white;
   background-color: #5D1049;
-  border: 1px solid #f2f2f2;
   padding: 5px; }
+  .icon-back:hover {
+    background-color: #720D5D; }
 
 .icon-confirm {
   width: 32%;
-  height: 100%;
+  height: 85%;
   position: absolute;
   right: 30%;
   fill: white;
   background-color: #5D1049;
-  border: 1px solid #f2f2f2;
   padding: 5px; }
+  .icon-confirm:hover {
+    background-color: #720D5D; }
 
 .icon-reset {
   width: 32%;
-  height: 100%;
+  height: 85%;
   position: absolute;
   right: 3%;
   fill: white;
   background-color: #5D1049;
-  border: 1px solid #f2f2f2;
   padding: 5px; }
-
-.icon:hover {
-  background-color: #720D5D; }
-
-* {
-  margin: 0;
-  padding: 0; }
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit; }
-
-html {
-  box-sizing: border-box;
-  font-size: 62.5%; }
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  background-color: #f2f2f2; }
-
-/* 
-  ////////////////PRE SET/////////////////////////// */
-.value--show {
-  border: 1px solid red;
-  display: inline-block; }
-
-.value--hide {
-  display: none; }
-
-.app {
-  background-color: #5D1049;
-  padding: 10px; }
-
-.container {
-  background-color: orange;
-  padding: 10px;
-  width: 100%;
-  height: 100%; }
-  .container--btnNum {
-    height: 50px;
-    width: 100%;
-    margin-top: 16px; }
-  .container--btnOpr {
-    height: 51px;
-    width: 100%;
-    margin-top: 3px; }
-  .container--btnFunc {
-    position: relative;
-    width: 100%;
-    height: 51px; }
-  .container--icons {
-    position: absolute;
-    right: 0%;
-    height: 100%;
-    width: 50%;
-    right: 0%; }
-  .container--apear {
-    background-color: green;
-    animation-name: pInput-growing;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards; }
-  .container--disapear {
-    background-color: green;
-    animation-name: pInput-shrink;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards; }
-  .container--pInput {
-    position: relative;
-    background-color: blue;
-    color: #f2f2f2;
-    width: 100%;
-    text-align: center;
-    font-weight: 500;
-    font-size: 1.5rem;
-    height: 40%;
-    width: 100%; }
-  .container-icon {
-    width: 32%;
-    height: 100%;
-    position: absolute;
-    right: 60%;
-    background-color: #5D1049;
-    border: 1px solid #f2f2f2;
-    padding: 15px; }
-
-.correct {
-  color: #f2f2f2;
-  background-color: #5D1049;
-  border: 1px solid #f2f2f2;
-  font-weight: 500;
-  font-size: 1.5rem;
-  height: 120px;
-  padding: 5px 15px;
-  margin: 10px; }
-
-.wrong {
-  color: #f2f2f2;
-  background-color: #E30425;
-  border: 1px solid #f2f2f2;
-  font-weight: 500;
-  font-size: 1.5rem;
-  height: 120px;
-  padding: 5px 15px;
-  margin: 10px; }
-
-.alertMy {
-  position: absolute;
-  bottom: 2%;
-  font-size: 1rem;
-  border-radius: 0%;
-  height: 25%;
-  padding: 3px;
-  width: 100%; }
-
-.message {
-  font-size: 1.3rem; }
+  .icon-reset:hover {
+    background-color: #720D5D; }
 
 @keyframes buttonDisable {
   0% {
@@ -340,3 +300,25 @@ body {
     height: 200px; }
   100% {
     height: 0px; } }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: #f2f2f2; }
+
+/* 
+  ////////////////PRE SET/////////////////////////// */

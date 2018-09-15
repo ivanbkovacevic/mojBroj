@@ -1,0 +1,132 @@
+.value--show {
+    border: 1px solid red;
+    display: inline-block;
+    }
+
+.value--hide {
+      display: none;
+    }
+  
+    .app {
+        background-color:$color-primary;
+        padding: 10px;
+    }
+      
+  
+  
+      .container{
+          background-color: $color-primary;
+          padding:10px; 
+          width:100%;
+          height:100%;
+  
+          &--btnNum {  
+              height: 50px;
+              width:100%;
+             
+         }
+    
+              &--btnOpr {
+                  height: 51px;
+                  width:100%;
+                  margin-top:3px;
+          }
+    
+          &--btnFunc {
+              position:relative;
+              background-color:$color-primary;
+              width: 100%;
+              height: 51px;
+      
+          }
+  
+          &--icons{
+              position: absolute;
+              right: 0%;
+              height:100%;
+              width:50%;
+              right:0%;
+          }
+  
+      
+          &--apear {
+              background-color: $color-primary;
+              animation-name: pInput-growing;
+              animation-duration: 0.5s;
+              animation-fill-mode:forwards;
+          }
+  
+          &--disapear {
+              background-color: $color-primary;
+              animation-name: pInput-shrink;
+              animation-duration: 0.5s;
+              animation-fill-mode: forwards;
+  
+          }
+
+          &--pInput{
+              position: relative;
+              background-color: $color-primary;
+              color:white;
+              width:100%;
+              text-align: center;
+              font-weight: 500;
+              font-size: 1.5rem;
+              height: 0%;
+            
+          }
+  
+          &-icons{
+              width:32%;
+              height: 100%;
+            //   display: inline-block;
+            //   position: absolute;
+            //   right:60%;
+              background-color: $color-primary;
+              padding-top:15px;
+          }
+  
+          &-razmak{
+              background-color: $color-primary;
+              height:30px;
+          }
+  }
+    
+  
+      .correct{
+          color:$color-back;
+          background-color: $color-success;
+          font-weight: 500;
+          font-size: 1.5rem;
+          height: 100px;
+          padding: 5px;
+          
+  
+      }
+    
+      .wrong{
+          color:$color-back;
+          background-color: $color-wrong;
+          font-weight: 500;
+          font-size: 1.5rem;
+          height: 100px;
+          padding: 5px;
+        
+      }
+    
+    
+      .alertMy{
+          position: absolute;
+          bottom: 2%;
+          font-size: 1rem;
+          border-radius: 0%;
+          height: 25%;
+          padding: 3px;
+          width: 100%;
+      }
+    
+      .message {
+  
+        font-size: 1.3rem;
+  
+      }

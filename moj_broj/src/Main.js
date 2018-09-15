@@ -36,8 +36,8 @@ class BtnNumGroup extends Component {
         zagZtv: 0,
         message: '',
         solution: '',
-        klasaSolution: 'playersInput',
-        klasaApp: ''
+        klasaSolution: '',
+        klasaApp: 'container--disapear'
     }
 
     generateTarget = () => {  // pravi target brojeve i dugmad kao objekti
@@ -243,30 +243,34 @@ class BtnNumGroup extends Component {
         let solution = btnClickedArr.map(btn => {
             return solutionString.push(btn.value)
         })
+
         solution = solutionString.toString();
         solution = solution.replace(/,/g, " ");
         let solutionLch = solution.slice(-1);
 
-
-        solutionLch = Number(solutionLch);
+if(solution.length !==0){
+    solutionLch = Number(solutionLch);
+    solution = eval(solution);
+    if (solution === targetNumber) {
+        win++;
+        message = 'TACNO RESENJE - CESTITAMO!';
+        klasaSolution = 'correct';
+        this.setState({ win, message, solution, klasaSolution });
+    } else {
         solution = eval(solution);
-        if (solution === targetNumber) {
-            win++;
-            message = 'TACNO RESENJE - CESTITAMO!';
-            klasaSolution = 'correct';
-            this.setState({ win, message, solution, klasaSolution });
-        } else {
-            solution = eval(solution);
-            solution = solution.toFixed(0);
-            loss++;
-            message = 'RESENJE NIJE TACNO :( ';
-            klasaSolution = 'wrong';
-            this.setState({ loss, message, solution, klasaSolution });
-        }
+        solution = solution.toFixed(0);
+        loss++;
+        message = 'RESENJE NIJE TACNO :( ';
+        klasaSolution = 'wrong';
+        this.setState({ loss, message, solution, klasaSolution });
+    }
 
-        let missedCurrent = Math.abs(targetNumber - solution);
-        missed = missed + missedCurrent;
-        this.setState({ missed });
+    let missedCurrent = Math.abs(targetNumber - solution);
+    missed = missed + missedCurrent;
+    this.setState({ missed });
+}
+   
+
     }
 
     ResetAll = () => {
@@ -338,81 +342,7 @@ class BtnNumGroup extends Component {
         )
 
         return (
-            // <div>
-            //     {/* <div className='state'><per>{JSON.stringify(this.state, null, 2)}</per></div> */}
-
-
-            //     <Row>
-            //         <Col lg={4} md={2} ></Col>
-            //         <Col lg={4} md={8} >
-            //         <div className="container">
-            //             <Score win={win} loss={loss} missed={missed} clock={this.state.clock} />
-            //         </div>
-            //         </Col>
-            //         <Col lg={4} md={2}></Col>
-            //     </Row>
-
-            //     <Row>
-            //         <Col lg={4} md={2}></Col>
-            //         <Col lg={4} md={8}>
-            //         <div className="container">
-            //             <div className='button-target'>{this.state.targetNumber}</div>
-            //         </div>
-            //         </Col>
-            //         <Col lg={4} md={2}></Col>
-            //     </Row>
-
-            //     <Row>
-            //         <Col lg={4} md={2}></Col>
-            //         <Col lg={4} md={8}>
-            //         <div className="container">
-            //         <div className='container--btnFunc'>
-            //             <button className='button-functional--start' onClick={this.generateTarget}>START</button>
-            //             <svg className="icon" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg>
-            //             <svg className="icon" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg>
-            //             <svg className="icon" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg>
-            //         </div>
-            //         </div>
-
-            //         </Col>
-            //         <Col lg={4} md={2}></Col>
-
-            //     </Row>
-
-            //     <Row>
-            //         <Col lg={4} md={2}></Col>
-            //         <Col lg={4} md={8}>
-            //         <div className="container">
-            //         <div className='container--btnNum'>{buttonsNum}</div>
-            //         </div>
-            //         </Col>
-            //         <Col lg={4} md={2}></Col>
-            //     </Row>
-            //     <Row>
-            //         <Col lg={4} md={2}></Col>
-            //         <Col lg={4} md={8}>
-            //         <div className="container">
-            //         <div className='container--btnOpr'> {buttonsOperand} {buttonsOperandSpecial}</div>
-            //            </div>
-            //         </Col>
-            //         <Col lg={4} md={2}></Col>
-            //     </Row>
-
-            //     <Row>
-            //         <Col lg={4} md={2}></Col>
-            //         <Col lg={4} md={8}>
-            //         <div className="container">
-            //             <PlayersScreen btnClickedArr={this.state.btnClickedArr}
-            //                 solution={solution}
-            //                 message={this.state.message}
-            //                 klasaSolution={this.state.klasaSolution}
-            //             />
-            //             </div>
-            //         </Col>
-            //         <Col lg={4} md={2}></Col>
-            //     </Row>
-
-            //     <p>------------------------------------------------</p>
+         
 
             <Row>
                 <Col lg={3} md={3} sm={2} ></Col>
@@ -424,12 +354,14 @@ class BtnNumGroup extends Component {
                         </div>
                         <div className='container--btnFunc'>
                             <button className='button-functional--start' onClick={this.generateTarget}>START</button>
+                           
                             <div className='container--icons'>
                                 <div className='container--icon'><svg className="icon-back" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg></div>
                                 <div className='container--icon'> <svg className="icon-confirm" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg></div>
                                 <div className='container--icon'><svg className="icon-reset" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg></div>
                             </div>
                         </div>
+                        <div className='container-razmak'></div>
                     <div className={klasaApp}>
                         <div className='container--btnNum'>{buttonsNum}</div>
                         <div className='container--btnOpr'>{buttonsOperand}{buttonsOperandSpecial}</div>
