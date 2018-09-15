@@ -345,8 +345,8 @@ if(solution.length !==0){
          
 
             <Row>
-                <Col lg={3} md={3} sm={2} ></Col>
-                <Col lg={6} md={6} sm={8} >
+                <Col lg={3} md={3} sm={2} xs={0}></Col>
+                <Col lg={6} md={6} sm={8} xs={12}>
 
                     <div className='container'>
                         <Score win={win} loss={loss} missed={missed} clock={this.state.clock} />
@@ -375,7 +375,7 @@ if(solution.length !==0){
 
 
                 </Col>
-                <Col lg={3} md={3} sm={2} ></Col>
+                <Col lg={3} md={3} sm={2} xs={0}></Col>
             </Row>
             // </div>
 
