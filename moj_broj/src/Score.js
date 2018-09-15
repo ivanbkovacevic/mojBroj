@@ -13,11 +13,11 @@ class Score extends Component {
         return (
             <div>
                  <Funkcija />
-                <div className='uputstvo'>
+                {/* <div className='uputstvo'>
                     <h3>UPUTSTVO:</h3>
                     <p>Pronađite traženi broj postavkom datih brojeva u matematičku jednačinu. Možete iskoristiti svaki od ponuđenih brojeva samo jedanput.
                     Ne smete postaviti dva broja zaredom bez znaka operacije između njih. Operacija mora biti matematički ispravna.</p>
-                </div>
+                </div> */}
                 <div>
                     {/* <Form horizontal>
                     <FormGroup controlId="formHorizontalName">

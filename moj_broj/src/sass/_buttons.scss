@@ -33,15 +33,15 @@ button {
         font-size: 4rem;
         letter-spacing: 5px;
         transition: all 0.5s;
-        height:15%;
+        height:40%;
         width: 100%;
         padding: 5px;
-        margin: 1px;
+        margin-top: 10px;
+        margin-bottom: 10px;
   
 }
 
   &-disabled {
-      
         opacity: 0.4;
         color: white;
         background-color:  $color-primary-light;
@@ -122,8 +122,9 @@ button {
 
     &-back{
         width:32%;
-        height: 85%;
+        height:65%;
        position: absolute;
+       top: 20%;
         right:60%;
         fill:white;
         background-color: $color-primary;
@@ -136,12 +137,14 @@ button {
 
     &-confirm{
         width:32%; 
-        height:85%;
+        height:65%;
         position: absolute;
+        top: 20%;
         right:30%;
         fill:white;
         background-color: $color-primary;
         padding:5px;
+        
         &:hover{
             background-color: $color-primary-light;
           }
@@ -149,12 +152,14 @@ button {
 
     &-reset{
         width:32%; 
-        height:85%;
+        height:65%;
         position: absolute;
+        top: 20%;
         right:3%;
         fill:white;
         background-color: $color-primary;
         padding:5px;
+
         &:hover{
             background-color: $color-primary-light;
           }

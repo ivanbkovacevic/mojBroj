@@ -18,11 +18,12 @@
           background-color: $color-primary;
           padding:10px; 
           width:100%;
-          height:100%;
+          height:30vh;
   
           &--btnNum {  
               height: 50px;
               width:100%;
+            
              
          }
     
@@ -30,6 +31,7 @@
                   height: 51px;
                   width:100%;
                   margin-top:3px;
+                
           }
     
           &--btnFunc {
@@ -52,14 +54,14 @@
           &--apear {
               background-color: $color-primary;
               animation-name: pInput-growing;
-              animation-duration: 0.5s;
+              animation-duration: 0.9s;
               animation-fill-mode:forwards;
           }
   
           &--disapear {
               background-color: $color-primary;
               animation-name: pInput-shrink;
-              animation-duration: 0.5s;
+              animation-duration: 0.9s;
               animation-fill-mode: forwards;
   
           }
@@ -71,7 +73,7 @@
               width:100%;
               text-align: center;
               font-weight: 500;
-              font-size: 1.5rem;
+              font-size:1.7rem;
               height: 0%;
             
           }
@@ -79,9 +81,7 @@
           &-icons{
               width:32%;
               height: 100%;
-            //   display: inline-block;
-            //   position: absolute;
-            //   right:60%;
+              position:relative;
               background-color: $color-primary;
               padding-top:15px;
           }
@@ -98,7 +98,7 @@
           background-color: $color-success;
           font-weight: 500;
           font-size: 1.5rem;
-          height: 100px;
+          height: 100%;
           padding: 5px;
           
   
@@ -109,15 +109,15 @@
           background-color: $color-wrong;
           font-weight: 500;
           font-size: 1.5rem;
-          height: 100px;
+          height: 100%;
           padding: 5px;
         
       }
     
     
       .alertMy{
-          position: absolute;
-          bottom: 2%;
+        //   position: absolute;
+        //   bottom: 2%;
           font-size: 1rem;
           border-radius: 0%;
           height: 25%;
@@ -128,5 +128,5 @@
       .message {
   
         font-size: 1.3rem;
-  
+        margin-top: 25%;
       }

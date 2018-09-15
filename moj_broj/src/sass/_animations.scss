@@ -29,13 +29,13 @@
           height:0px;
       }
       100%{
-          height:200px;
+          height:100vh;
       }
   }
 
   @keyframes pInput-shrink{
     0%{
-        height:200px;
+        height:100vh;
     }
     100%{
         height:0px ;

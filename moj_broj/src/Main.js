@@ -31,6 +31,7 @@ class BtnNumGroup extends Component {
         numbersAlowed: true,
         operandsAlowed: false,
         isDisabled: false,
+       
         // operandDisabled: false,
         zagOtv: 0,
         zagZtv: 0,
@@ -39,6 +40,12 @@ class BtnNumGroup extends Component {
         klasaSolution: '',
         klasaApp: 'container--disapear'
     }
+
+
+    
+    // modalShow() {
+    //     this.setState({ show: true });
+    //   }
 
     generateTarget = () => {  // pravi target brojeve i dugmad kao objekti
         let { numbersArray, numSpecArr, gameStarted, operandsArray, oprSpecArray, message, klasaApp } = this.state;
