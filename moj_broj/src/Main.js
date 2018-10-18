@@ -30,7 +30,8 @@ class Main extends Component {
         message: '',
         solution: '',
         klasaSolution: '',
-        klasaApp: 'container--disapear'
+        klasaApp: 'container--disapear',
+        calculateMissed:null
     }
 
     generateTarget = () => {
@@ -240,7 +241,7 @@ class Main extends Component {
     }
     //we are calculating the score
     Calculate = () => {
-        let { btnClickedArr, win, loss, targetNumber, message, klasaSolution, missed } = this.state;
+        let { btnClickedArr, win, loss, targetNumber, message, klasaSolution, missed,calculateMissed } = this.state;
         let solutionString = [];
         let solution = btnClickedArr.map(btn => {
             return solutionString.push(btn.value)
@@ -253,7 +254,8 @@ class Main extends Component {
         if (solution.length !== 0) {
             if (solutionLch === '+' || solutionLch === '-' || solutionLch === '*' || solutionLch === '/') {
                 message = 'Operacija je neispravna';
-                this.setState({ message });
+                calculateMissed=false;
+                this.setState({ message,calculateMissed });
             } else {
 
                 solution = eval(solution);
@@ -268,13 +270,17 @@ class Main extends Component {
                     loss++;
                     message = 'RESENJE NIJE TACNO :( ';
                     klasaSolution = 'wrong';
-                    this.setState({ loss, message, solution, klasaSolution });
+                    calculateMissed=true;
+                    this.setState({ loss, message, solution, klasaSolution,calculateMissed });
                 }
             }
-
-            let missedCurrent = Math.abs(targetNumber - solution);
-            missed = missed + missedCurrent;
-            this.setState({ missed });
+                //checking if operation is valid so can add missed points
+               if(calculateMissed){
+                let missedCurrent = Math.abs(targetNumber - solution);
+                missed = missed + missedCurrent;
+                this.setState({ missed });
+                  }
+           
         }
     }
 
