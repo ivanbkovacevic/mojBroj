@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {Alert} from 'react-bootstrap';
-
 
 class PlayersScreen extends Component {
 

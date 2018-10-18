@@ -10,14 +10,12 @@ import PlayersScreen from './PlayersScreen';
 import { Col, Row } from 'react-bootstrap';
 
 
-class BtnNumGroup extends Component {
+class Main extends Component {
     state = {
-
         targetNumber: 0,
         clock: { m: 0, s: 0 },
 
         numbersArray: [],
-
         operandsArray: [],
         oprSpecArray: [],
         btnClickedArr: [],
@@ -41,8 +39,6 @@ class BtnNumGroup extends Component {
         klasaApp: 'container--disapear'
     }
 
-
-    
     // modalShow() {
     //     this.setState({ show: true });
     //   }
@@ -349,8 +345,6 @@ if(solution.length !==0){
         )
 
         return (
-         
-
             <Row>
                 <Col lg={3} md={3} sm={2} xs={0}></Col>
                 <Col lg={6} md={6} sm={8} xs={12}>
@@ -392,4 +386,4 @@ if(solution.length !==0){
     }
 
 }
-export default BtnNumGroup;
+export default Main;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/mojbroj.css';
-import BtnNumGroup from './Main';
+import Main from './Main';
 import ModalWindow from './ModalWindow';
 
 
@@ -9,8 +9,7 @@ class App extends Component {
     return (
       <div >
         <ModalWindow />
-         <BtnNumGroup />
-        
+         <Main />
       </div>
     );
   }
