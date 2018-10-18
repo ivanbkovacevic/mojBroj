@@ -3,7 +3,6 @@ import './css/mojbroj.css';
 import Main from './Main';
 import ModalWindow from './ModalWindow';
 
-
 class App extends Component {
   render() {
     return (

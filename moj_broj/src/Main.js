@@ -9,18 +9,14 @@ import PlayersScreen from './PlayersScreen';
 
 import { Col, Row } from 'react-bootstrap';
 
-
 class Main extends Component {
     state = {
         targetNumber: 0,
-        clock: { m: 0, s: 0 },
-
         numbersArray: [],
         operandsArray: [],
         oprSpecArray: [],
         btnClickedArr: [],
         buttonOrder: 0,
-
         gameStarted: false,
         win: 0,
         loss: 0,
@@ -29,8 +25,6 @@ class Main extends Component {
         numbersAlowed: true,
         operandsAlowed: false,
         isDisabled: false,
-       
-        // operandDisabled: false,
         zagOtv: 0,
         zagZtv: 0,
         message: '',
@@ -39,11 +33,8 @@ class Main extends Component {
         klasaApp: 'container--disapear'
     }
 
-    // modalShow() {
-    //     this.setState({ show: true });
-    //   }
-
-    generateTarget = () => {  // pravi target brojeve i dugmad kao objekti
+    generateTarget = () => {
+        // method that makes numbers and buttons like objects
         let { numbersArray, numSpecArr, gameStarted, operandsArray, oprSpecArray, message, klasaApp } = this.state;
 
         if (gameStarted === false) {
@@ -86,7 +77,6 @@ class Main extends Component {
             this.setState({ targetNumber, target1, target2, target3, target4, target5, target6, numbersArray, numSpecArr, operandsArray, oprSpecArray, gameStarted, message, klasaApp })
 
         } else {
-
             message = 'Morate prvo resetovati celu igru da biste izabrali nove brojeve';
             this.setState({ message });
         }
@@ -94,22 +84,27 @@ class Main extends Component {
     }
 
 
-    ButtonClicked = (id, i, alowed, type) => {
-        let { numbersArray, btnClickedArr, buttonOrder, numbersAlowed, operandsAlowed, message } = this.state;  //// dugme novo kao objekat ... ovde se setuje kada se klikne na njega
+    ButtonClicked = (id, i) => {
+        //method for onClick event on number buttons. Here we collect data and procces form further use
+        let { numbersArray, btnClickedArr, buttonOrder, numbersAlowed, operandsAlowed, message } = this.state;
+
         message = '';
         if (numbersAlowed === true) {
             numbersArray = numbersArray.slice();
-            buttonOrder += 1;  ////////// redovni destructuring 
-            ///////////////////////////////////////////////////////////////////////////////
+            buttonOrder += 1;
+            //////////  making a copy of array 
+
+            numbersArray[i].order = buttonOrder;
+            //here we change click property of button and order so we can use it for css 
             numbersArray[i].clicked = !numbersArray[i].clicked;
-            numbersArray[i].order = buttonOrder;//menjanje is clicked properties da mi se menjala css classa i dodavanje ordera dugmetu 
-
-            let btnNum = numbersArray.find(btn => btn.id === id); /// find button  na osnovu id dugmeta ...
-
-            let btnNumClicked = { ...btnNum }; // pravljenje kopije objekta
-
-            btnClickedArr.push(btnNumClicked);// ubacivanje u btnClick niz...niz koji ispisuje inpute
-            btnClickedArr = btnClickedArr.sort((obj1, obj2) => { return obj1.order - obj2.order });//sortiranje btnClickedArr niza
+            /// here we find button  based on id
+            let btnNum = numbersArray.find(btn => btn.id === id);
+            // copying button object
+            let btnNumClicked = { ...btnNum };
+            // pushing buttons in array for displaying 
+            btnClickedArr.push(btnNumClicked);
+            //sorting btnClickedArr 
+            btnClickedArr = btnClickedArr.sort((obj1, obj2) => { return obj1.order - obj2.order });
             numbersAlowed = false;
             operandsAlowed = true;
             this.setState({ numbersArray, btnClickedArr, buttonOrder, operandsAlowed, numbersAlowed, message });
@@ -121,27 +116,29 @@ class Main extends Component {
 
     }
 
-    ButtonOperandClicked = (id, i, alowed, type) => {
+    ButtonOperandClicked = (id, i) => {
         let { btnClickedArr, buttonOrder, numbersAlowed, operandsAlowed, operandsArray, message } = this.state;
         message = '';
 
-
         if (operandsAlowed === true) {
+            //////////  making a copy of array 
             operandsArray = operandsArray.slice();
-            buttonOrder += 1;  ////////// redovni destructuring 
-            ///////////////////////////////////////////////////////////////////////////////
+            buttonOrder += 1;
+            //here we change click property of button and order so we can use it for css 
             operandsArray[i].clicked = !operandsArray[i].clicked;
-            operandsArray[i].order = buttonOrder;//menjanje is clicked properties da mi se menjala css classa i dodavanje ordera dugmetu 
-
-            let btnOpr = operandsArray.find(btn => btn.id === id); /// find button  na osnovu id dugmeta ...
-            let btnOprClicked = { ...btnOpr }; // pravljenje kopije objekta
-
-            btnClickedArr.push(btnOprClicked);// ubacivanje u btnClick niz...niz koji ispisuje inpute
+            operandsArray[i].order = buttonOrder;
+            /// here we find button  based on id
+            let btnOpr = operandsArray.find(btn => btn.id === id);
+            // copying button object
+            let btnOprClicked = { ...btnOpr };
+            // pushing buttons in array for displaying 
+            btnClickedArr.push(btnOprClicked);
             if (btnClickedArr[0].type === 'operand') {
                 message = 'Ne moze operacija da zapocne operatorom';
                 this.setState({ message });
             }
-            btnClickedArr = btnClickedArr.sort((obj1, obj2) => { return obj1.order - obj2.order });//sortiranje btnClickedArr niza
+            //sorting btnClickedArr 
+            btnClickedArr = btnClickedArr.sort((obj1, obj2) => { return obj1.order - obj2.order });
             numbersAlowed = true;
             operandsAlowed = false;
             this.setState({ operandsArray, btnClickedArr, buttonOrder, operandsAlowed, numbersAlowed, message });
@@ -149,27 +146,28 @@ class Main extends Component {
             message = 'Ne mogu dva operatora za redom ili operator na početku';
             this.setState({ message });
         }
-
-
     }
 
     ButtonOperandSpecialClicked = (id, k, alowed, type) => {
         let { oprSpecArray, btnClickedArr, buttonOrder, message } = this.state;
+        //////////  making a copy of array 
         oprSpecArray = oprSpecArray.slice();
-        buttonOrder += 1;  ////////// redovni destructuring 
-        ///////////////////////////////////////////////////////////////////////////////
+        buttonOrder += 1;
+        //here we change click property of button and order so we can use it for css 
         oprSpecArray[k].clicked = !oprSpecArray[k].clicked;
-        oprSpecArray[k].order = buttonOrder;//menjanje is clicked properties da mi se menjala css classa i dodavanje ordera dugmetu 
-
-        let btnOprSpec = oprSpecArray.find(btn => btn.id === id); /// find button  na osnovu id dugmeta ...
-        let btnOprSpecClicked = { ...btnOprSpec }; // pravljenje kopije objekta
-
-        btnClickedArr.push(btnOprSpecClicked);// ubacivanje u btnClick niz...niz koji ispisuje inpute
-        btnClickedArr = btnClickedArr.sort((obj1, obj2) => { return obj1.order - obj2.order });//sortiranje btnClickedArr niza
+        oprSpecArray[k].order = buttonOrder;
+        /// here we find button  based on id
+        let btnOprSpec = oprSpecArray.find(btn => btn.id === id);
+        // copying button object
+        let btnOprSpecClicked = { ...btnOprSpec };
+        // pushing buttons in array for displaying 
+        btnClickedArr.push(btnOprSpecClicked);
+        //sorting btnClickedArr 
+        btnClickedArr = btnClickedArr.sort((obj1, obj2) => { return obj1.order - obj2.order });
         this.setState({ oprSpecArray, btnClickedArr, buttonOrder });
 
-
-        if (btnClickedArr.length > 1) {   /////////// uslovi vezani za upotrebe zagrada   
+        // conditions for aprentices use   
+        if (btnClickedArr.length > 1) {
             for (let i = 1; i < btnClickedArr.length; i++) {
                 if (btnClickedArr[i - 1].value === '(' && btnClickedArr[i].value === ')') {
                     message = 'Nepravilna upotreba zagrada';
@@ -183,7 +181,7 @@ class Main extends Component {
                 } else if (btnClickedArr[i - 1].type === 'number' && btnClickedArr[i].value === '(') {
                     message = 'Izostao vam je operator izmedju broja i zagrade';
                     this.setState({ message });
-                    ///////////////////////
+
                 } else if (btnClickedArr[i - 1].value === '(' && btnClickedArr[i].type === 'operand') {
                     message = 'Izostao vam je broj izmedju zagrade i operatora';
                     this.setState({ message });
@@ -195,9 +193,10 @@ class Main extends Component {
 
         }
     }
-
-    DeleteButtonsClicked = () => {  // brisanje upisanih dugmadi i vracanje dugmadi u funkciju  // koristi se findIndex sa id da bi se pronaslo dugme
-        let { numbersArray, operandsArray, btnClickedArr, buttonOrder, message, numbersAlowed, operandsAlowed, klasaSolution, solution } = this.state;
+    // deleting buttons and enabling buttons for use . We find buttons by id 
+    DeleteButtonsClicked = () => {
+        let { numbersArray, operandsArray, btnClickedArr, buttonOrder, message, numbersAlowed, operandsAlowed,
+            klasaSolution, solution } = this.state;
         btnClickedArr = btnClickedArr.slice();
         numbersArray = numbersArray.slice();
         operandsArray = operandsArray.slice();
@@ -239,7 +238,7 @@ class Main extends Component {
             this.setState({ message, operandsAlowed, numbersAlowed, buttonOrder, solution, klasaSolution });
         }
     }
-
+    //we are calculating the score
     Calculate = () => {
         let { btnClickedArr, win, loss, targetNumber, message, klasaSolution, missed } = this.state;
         let solutionString = [];
@@ -251,33 +250,37 @@ class Main extends Component {
         solution = solution.replace(/,/g, " ");
         let solutionLch = solution.slice(-1);
 
-if(solution.length !==0){
-    solutionLch = Number(solutionLch);
-    solution = eval(solution);
-    if (solution === targetNumber) {
-        win++;
-        message = 'TACNO RESENJE - CESTITAMO!';
-        klasaSolution = 'correct';
-        this.setState({ win, message, solution, klasaSolution });
-    } else {
-        solution = eval(solution);
-        solution = solution.toFixed(0);
-        loss++;
-        message = 'RESENJE NIJE TACNO :( ';
-        klasaSolution = 'wrong';
-        this.setState({ loss, message, solution, klasaSolution });
+        if (solution.length !== 0) {
+            if (solutionLch === '+' || solutionLch === '-' || solutionLch === '*' || solutionLch === '/') {
+                message = 'Operacija je neispravna';
+                this.setState({ message });
+            } else {
+
+                solution = eval(solution);
+                if (solution === targetNumber) {
+                    win++;
+                    message = 'TACNO RESENJE - CESTITAMO!';
+                    klasaSolution = 'correct';
+                    this.setState({ win, message, solution, klasaSolution });
+                } else {
+                    solution = eval(solution);
+                    solution = solution.toFixed(0);
+                    loss++;
+                    message = 'RESENJE NIJE TACNO :( ';
+                    klasaSolution = 'wrong';
+                    this.setState({ loss, message, solution, klasaSolution });
+                }
+            }
+
+            let missedCurrent = Math.abs(targetNumber - solution);
+            missed = missed + missedCurrent;
+            this.setState({ missed });
+        }
     }
 
-    let missedCurrent = Math.abs(targetNumber - solution);
-    missed = missed + missedCurrent;
-    this.setState({ missed });
-}
-   
-
-    }
-
+    //reseting all to starting state
     ResetAll = () => {
-        let { loss, missed } = this.state;
+
         this.setState({
             targetNumber: 0,
             numbersArray: [],
@@ -297,17 +300,14 @@ if(solution.length !==0){
             klasaSolution: '',
             klasaApp: 'container--disapear'
         });
-        // loss++;
-        // missed+=200;
-        // this.setState({loss,missed});
+
     }
 
     render() {
         let { solution, win, loss, missed, klasaApp } = this.state;
-        let buttonsNum = null;  // renderovanje dugmadi za brojeve
-        let buttonsOperand = null;  // renderovanje dugmadi za brojeve
-        let buttonsOperandSpecial = null;  // renderovanje dugmadi za brojeve
-
+        let buttonsNum = null;
+        let buttonsOperand = null;
+        let buttonsOperandSpecial = null;
 
         buttonsNum = (
             this.state.numbersArray.map((btn, i) => {
@@ -337,7 +337,6 @@ if(solution.length !==0){
                 return (<ButtonsOperandSpecial value={btn.value}
                     id={k}
                     clicked={() => this.ButtonOperandSpecialClicked(btn.id, k, btn.alowed, btn.type)}
-
                 />
                 )
             })
@@ -352,36 +351,30 @@ if(solution.length !==0){
                     <div className='container'>
                         <Score win={win} loss={loss} missed={missed} clock={this.state.clock} />
                         <div className='button-target'>{this.state.targetNumber}</div>
+                    </div>
+                    <div className='container--btnFunc'>
+                        <button className='button-functional--start' onClick={this.generateTarget}>START</button>
+
+                        <div className='container--icons'>
+                            <div className='container--icon'><svg className="icon-back" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg></div>
+                            <div className='container--icon'> <svg className="icon-confirm" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg></div>
+                            <div className='container--icon'><svg className="icon-reset" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg></div>
                         </div>
-                        <div className='container--btnFunc'>
-                            <button className='button-functional--start' onClick={this.generateTarget}>START</button>
-                           
-                            <div className='container--icons'>
-                                <div className='container--icon'><svg className="icon-back" onClick={this.DeleteButtonsClicked}><use xlinkHref="sprite.svg#icon-backspace"></use></svg></div>
-                                <div className='container--icon'> <svg className="icon-confirm" onClick={this.Calculate}><use xlinkHref="sprite.svg#icon-checkmark"></use></svg></div>
-                                <div className='container--icon'><svg className="icon-reset" onClick={this.ResetAll} resetovati={this.ResetAll}><use xlinkHref="sprite.svg#icon-reload"></use></svg></div>
-                            </div>
-                        </div>
-                        <div className='container-razmak'></div>
+                    </div>
+                    <div className='container-razmak'></div>
                     <div className={klasaApp}>
                         <div className='container--btnNum'>{buttonsNum}</div>
                         <div className='container--btnOpr'>{buttonsOperand}{buttonsOperandSpecial}</div>
                         <PlayersScreen btnClickedArr={this.state.btnClickedArr}
-                        solution={solution}
-                        message={this.state.message}
-                        klasaSolution={this.state.klasaSolution}
+                            solution={solution}
+                            message={this.state.message}
+                            klasaSolution={this.state.klasaSolution}
                         />
                     </div>
-                    
-
-
                 </Col>
                 <Col lg={3} md={3} sm={2} xs={0}></Col>
             </Row>
-            // </div>
 
-
-            // </div>
         );
     }
 
